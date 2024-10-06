@@ -155,6 +155,7 @@ Lijst met je bevindingen die in de test naar voren kwamen (geef ook aan wat er v
 
 ## Voortgang 3 (week 4)
 
+<!-- wat ik wil vragen: de svg/ filter over een foto krijgen met clipmask, een knop maken waardoor je een deel verbergt en kan laten zien,  -->
 <details>
   <summary>uitwerken voor 3<sup>e</sup> voortgang</summary>
 

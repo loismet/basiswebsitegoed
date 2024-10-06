@@ -1,90 +1,54 @@
-
-/***********/
-/* FONTS  */
-/***********/
+@import url("styles/fonts/stylesheet.css");
 
 @font-face {
-    font-family: 'IntegralCF-Regular';
-    src: url('fonts/IntegralCF-Regular.ttf') format('truetype');
-  }
-  
-  @font-face {
-    font-family: 'Integralbold';
-    src: url('fonts/IntegralCF-Bold.ttf') format('truetype');
-  }
+  font-family: "IntegralCF-Regular";
+  src: url("fonts/IntegralCF-Regular.ttf") format("truetype");
+}
 
-  @font-face {
-    font-family: 'Integralxbold';
-    src: url('fonts/IntegralCF-ExtraBold.ttf') format('truetype');
-  }
+@font-face {
+  font-family: "Integralbold";
+  src: url("fonts/IntegralCF-Bold.ttf") format("truetype");
+}
 
-  @font-face {
-    font-family: 'Integralheavy';
-    src: url('fonts/IntegralCF-Heavy.ttf') format('truetype');
-  }
+@font-face {
+  font-family: "Integralxbold";
+  src: url("fonts/IntegralCF-ExtraBold.ttf") format("truetype");
+}
 
-  @font-face {
-    font-family: 'Manifoldreg';
-    src: url('fonts/ManifoldCF-Regular.ttf') format('truetype');
-  }
+@font-face {
+  font-family: "Integralheavy";
+  src: url("fonts/IntegralCF-Heavy.ttf") format("truetype");
+}
 
-  @font-face {
-    font-family: 'Manifoldxbold';
-    src: url('fonts/ManifoldCF-ExtraBold.ttf') format('truetype');
-  }
+@font-face {
+  font-family: "Manifoldreg";
+  src: url("fonts/ManifoldCF-Regular.ttf") format("truetype");
+}
 
-  @font-face {
-    font-family: 'Manifolddemi';
-    src: url('fonts/ManifoldCF-DemiBold.ttf') format('truetype');
-  }
+@font-face {
+  font-family: "Manifoldxbold";
+  src: url("fonts/ManifoldCF-ExtraBold.ttf") format("truetype");
+}
 
+@font-face {
+  font-family: "Manifolddemi";
+  src: url("fonts/ManifoldCF-DemiBold.ttf") format("truetype");
+}
 
-  /* Algemeen */
+/* Algemeen */
 
-li{
+li {
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
 }
 
-p{
-  font-family: 'Manifoldreg';
+p {
+  font-family: "Manifoldreg";
 }
-
-
-
-/**************/
-/* CSS REMEDY */
-/**************/
-*, *::after, *::before {
-  box-sizing:border-box;  
-}
-
-
-
-
-
-
-/*********************/
-/* CUSTOM PROPERTIES */
-/*********************/
-:root {
-	/* startje */
-	--color-text:#111;
-	--color-background:#eee;
-
-}
-
-
-
-
-
-/****************/
-/* JOUW STYLING */
-/****************/
 
 /**************/
 /* CSS REMEDY */
@@ -105,8 +69,20 @@ p{
 :root {
   /* startje */
   --color-text: #111;
-  --color-background: #eee;
+  --text-color:white;
+  --main-bg-color: white;
+  --color-background-background: #f4f4f4;
   --header-height: 80px;
+  --background-background-color:black;
+  --font
+  --font-family-1:'IntegralCF-Regular';
+  --font-2:'';
+  --font-3:;
+  --font-4:;
+  --font-5:;
+  --font-6:;
+  --font-6:;
+
 }
 
 /****************/
@@ -153,7 +129,10 @@ img {
   max-width: 100vw; /* Zorgt ervoor dat de afbeelding niet breder is dan het viewport-breedte */
 }
 
-/* Header */
+/***********/
+/* HEADER */
+/**********/
+
 header {
   display: flex;
   align-items: center;
@@ -169,8 +148,8 @@ header {
 }
 
 header h1 {
-  font-size: 2rem;
-  color: #000;
+  font-size: 1.5rem;
+  color:var(--color-text);
 }
 
 header nav {
@@ -190,7 +169,7 @@ header nav ul {
 
 /* Navigatie links */
 header nav ul li a {
-  color: rgb(0, 0, 0);
+  color: var(--color-text);
   text-decoration: none;
   font-size: 1rem;
   padding: 0.5rem 1rem;
@@ -198,6 +177,7 @@ header nav ul li a {
   justify-content: center;
   transition: color 0.3s ease;
 }
+
 
 /* HAMBURGER MENU */
 button {
@@ -215,7 +195,7 @@ button span {
   display: block;
   width: 100%;
   height: 2px;
-  background-color: #000;
+  background-color:var(--background-background-color);
   transition: all 0.3s ease;
 }
 
@@ -234,7 +214,7 @@ button span {
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    background-color: #000000;
+    background-color:var(--background-background-color);
     display: none;
     z-index: 9;
   }
@@ -291,10 +271,10 @@ button span {
     color: white;
   }
 }
-/* Hero Sectie */
+/* 1STE SECTIE HOME */
 #homepage section:nth-of-type(1) {
   display: grid;
-  grid-template-rows: repeat(5, minmax(0, auto));
+  grid-template-rows: repeat(6, minmax(0, auto));
   width: 100%;
   height: 60vh; /* Of gebruik een andere waarde voor de hoogte */
   position: relative;
@@ -326,22 +306,27 @@ button span {
 }
 
 #homepage section:nth-of-type(1) h2 {
-  grid-row: 1;
+  grid-row: 2;
   font-size: 2.5rem;
   align-self: end; /* Of gebruik 'center' of 'end' om de positie binnen de grid-rij te veranderen */
 }
 
 #homepage section:nth-of-type(1) h3 {
-  grid-row: 2;
+  grid-row: 3;
   font-size: 1.1rem;
+  padding-top: 1em;
+  height: 0.4em;
 }
 
 #homepage section:nth-of-type(1) p {
-  grid-row: 3;
+  grid-row: 4;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8em;
 }
 
 #homepage section:nth-of-type(1) ul {
-  grid-row: 4;
+  grid-row: 5;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -352,11 +337,11 @@ button span {
 #homepage section:nth-of-type(1) ul li {
   padding: 0.6em 4em;
   background-color: #ec3648;
+  font-size: 0.9em;
 }
 
 #homepage section:nth-of-type(1) ul li a {
   color: white;
-  background-color: #ec3648;
   font-family: "Manifoldreg";
   text-align: center;
   padding: 0.6rem;
@@ -367,19 +352,18 @@ button span {
   background-color: #c0392b;
 }
 
-/* Banner */
-/* Banner Sectie */
+/* BANNERS  */
+/* BANNER 1 */
 #homepage section:nth-of-type(2) {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
   width: 100%;
   height: 100px;
-  background-color: #ffffff;
   position: relative; /* Zorgt ervoor dat we elementen binnen deze sectie kunnen positioneren */
   overflow: hidden; /* Zorgt ervoor dat de scrollende tekst buiten de banner niet zichtbaar is */
-}
+} 
 
 /* Scrollende tekst op de achtergrond */
 #homepage section:nth-of-type(2) p {
@@ -390,8 +374,6 @@ button span {
   animation: scroll-text 10s linear infinite;
   white-space: nowrap; /* Zorgt ervoor dat de tekst niet wordt afgebroken */
   top: 10%; /* Zorgt ervoor dat de tekst verticaal gecentreerd is */
-  left: 100%; /* Start buiten het scherm aan de rechterkant */
-  transform: translateY(-50%); /* Centraal positioneren van de tekst */
 }
 
 /* Duplicatie van de tekst */
@@ -406,7 +388,7 @@ button span {
 @keyframes scroll-text {
   0% {
     transform: translateX(
-      100%
+      100vw
     ); /* Start buiten het scherm aan de rechterkant */
   }
   100% {
@@ -416,11 +398,33 @@ button span {
   }
 }
 
+#homepage section:nth-of-type(2) div {
+  display: flex;
+  justify-content: space-evenly; /* Verdeel de SVG's gelijkmatig */
+  align-items:flex-end;
+  left: 70%;
+  bottom: 35%;
+  width:20%;
+  height: 10px; /* Stel een vaste hoogte in voor de SVG-container */
+  position: relative;
+  margin-top: 20px; /* Ruimte tussen de tekst en de SVG's */
+}
+
+#homepage section:nth-of-type(2) div svg {
+  width: 1em;
+  padding: 0;
+  height: 4em;
+
+}
+
+
 /* Knop styling */
 #homepage section:nth-of-type(2) a {
   position: relative; /* Zorgt ervoor dat de knop bovenop de tekst wordt geplaatst */
   z-index: 2; /* Zorgt ervoor dat de knop boven de scrollende tekst komt */
   padding: 0.5rem 1rem;
+  width: 10em;
+  margin: auto;
   background-color: #ec3648;
   color: white;
   font-family: "Manifoldreg", sans-serif;
@@ -436,7 +440,74 @@ button span {
   background-color: #c0392b; /* Donkere rode kleur bij hover */
 }
 
-/* LOCATIELIJST*/
+
+
+/* BANNER 2 */
+#homepage section:nth-of-type(4) {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  width: 100%;
+  height: 150px;
+  position: relative; /* Zorgt ervoor dat we elementen binnen deze sectie kunnen positioneren */
+  overflow: hidden; /* Zorgt ervoor dat de scrollende tekst buiten de banner niet zichtbaar is */
+}
+
+/* Scrollende tekst op de achtergrond */
+#homepage section:nth-of-type(4) p {
+  position: absolute; /* Plaatst de tekst los van andere elementen */
+  z-index: 1; /* Zorgt ervoor dat de tekst achter de knop blijft */
+  font-size: 4em;
+  font-family: "Integralxbold";
+  animation: scroll-text 10s linear infinite;
+  white-space: nowrap; /* Zorgt ervoor dat de tekst niet wordt afgebroken */
+  top: 10%; /* Zorgt ervoor dat de tekst verticaal gecentreerd is */
+}
+
+/* Knop styling */
+#homepage section:nth-of-type(4) a {
+  position: relative; /* Zorgt ervoor dat de knop bovenop de tekst wordt geplaatst */
+  z-index: 2; /* Zorgt ervoor dat de knop boven de scrollende tekst komt */
+  padding: 0.8em 1.5em;
+  background-color: #ec3648;
+  width: 60%;
+  color: white;
+  font-family: "Manifoldreg", sans-serif;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+  text-decoration: none; /* Verwijdert de standaard onderstreping */
+  letter-spacing: 0.1em;
+  margin-top: 1em;
+  font-weight: bold; /* Maakt de tekst in de knop vetgedrukt */
+  align-self: flex-start;
+  left: 12%;
+  top: 40%;
+}
+
+#homepage section:nth-of-type(4) div {
+  display: flex;
+  justify-content: space-evenly; /* Verdeel de SVG's gelijkmatig */
+  align-items:flex-end;
+  left: 70%;
+  bottom: 5%;
+  width:20%;
+  height: 10px; /* Stel een vaste hoogte in voor de SVG-container */
+  position: relative;
+  margin-top: 20px; /* Ruimte tussen de tekst en de SVG's */
+}
+
+#homepage section:nth-of-type(4) div svg {
+  width: 1em;
+  padding: 0;
+  height: 4em;
+
+}
+
+#homepage section:nth-of-type(4) a:hover {
+  background-color: black; /* Donkere rode kleur bij hover */
+}
+/* 2DE SECTIE HOME LOCATIELIJST*/
 #homepage section:nth-of-type(3) {
   padding: 2rem;
   background-color: #f4f4f4; /* Lichte achtergrondkleur */
@@ -512,19 +583,422 @@ button span {
   letter-spacing: 0.1em;
 }
 
+/* 3DE SECTIE HOME SOCIAL WALL */
+
+#homepage section:nth-of-type(5) {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f4f4f4; /* Lichte achtergrondkleur */
+  margin: 0 auto;
+  height: 100%;
+  margin-top: 2em;
+}
+
+#homepage section:nth-of-type(5) h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-family: "Integralbold";
+}
+
+#homepage section:nth-of-type(5) p {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+  font-family: "Integralbold";
+}
+
+/* Styling voor de sectie */
+#homepage section:nth-of-type(5) {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f4f4f4; /* Lichte achtergrondkleur */
+}
+
+/* H3 en H4 styling voor de titels */
+
+/* Styling voor de sectie */
+#homepage section:nth-of-type(5) {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f4f4f4; /* Lichte achtergrondkleur */
+}
+
+/* H3 en H4 styling voor de titels, links uitlijnen */
+#homepage section:nth-of-type(5) h3,
+#homepage section:nth-of-type(5) h4 {
+  text-align: left; /* Zorg ervoor dat de titels links zijn uitgelijnd */
+  margin-left: 2rem; /* Voeg wat marge toe aan de linkerkant om wat ruimte te creëren */
+}
+
+#homepage section:nth-of-type(5) h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  left: 10%;
+}
+
+#homepage section:nth-of-type(5) h4 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+}
+
+/* Styling voor de ul en li */
+#homepage section:nth-of-type(5) ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); /* Zet twee afbeeldingen naast elkaar */
+  gap: 1rem; /* Voeg ruimte toe tussen de afbeeldingen */
+  justify-items: center;
+  width: 100%;
+}
+
+/* Styling voor de afbeeldingen om vierkant te maken */
+#homepage section:nth-of-type(5) li img {
+  width: 100%;
+  max-width: 300px; /* Zorg ervoor dat de afbeelding niet breder is dan 300px */
+  aspect-ratio: 1/1;
+  object-fit: cover; /* Zorgt ervoor dat de afbeelding de ruimte vult zonder vervorming */
+  display: block;
+}
+
+/* Styling voor de knop */
+#homepage section:nth-of-type(5) div {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  width: 100%;
+}
+
+#homepage section:nth-of-type(5) div a {
+  display: flex;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  padding: 1em;
+}
+
+/* 4DE SECTIE HOME MORE MORE */
+
+#homepage section:nth-of-type(6) {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f4f4f4; /* Lichte achtergrondkleur */
+}
+
+#homepage section:nth-of-type(6) h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: start;
+  margin-bottom: 2rem;
+  padding-left: 1em;
+  color: #333;
+}
+
+/* Scrollbare container */
+#homepage section:nth-of-type(6) ul {
+  display: flex;
+  overflow-x: scroll; /* Hiermee kan horizontaal gescrold worden */
+  list-style: none;
+  gap: 0.1rem; /* Ruimte tussen de items */
+  scroll-behavior: smooth; /* Zorgt voor soepel scrollen */
+  padding: 0;
+  margin: 0;
+}
+
+#homepage section:nth-of-type(6) ul::-webkit-scrollbar {
+  height: 8px; /* Hoogte van de scrollbar */
+}
+
+#homepage section:nth-of-type(6) ul::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar thumb kleur */
+  border-radius: 10px;
+}
+
+/* Stijling van de afbeelding en de lijstitems */
+#homepage section:nth-of-type(6) ul li {
+  position: relative;
+  min-width: 300px; /* Zodat elk item een consistente breedte heeft */
+  flex-shrink: 0; /* Voorkomt dat de items krimpen */
+}
+
+#homepage section:nth-of-type(6) ul li img {
+  width: 80%;
+  height: 90%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  padding: 0;
+  margin: 0;
+}
+
+#homepage section:nth-of-type(6) ul li:hover img {
+  transform: scale(1.05); /* Kleine zoom-in bij hover */
+}
+
+/* Tekst overlay stijling */
+#homepage section:nth-of-type(6) ul li a {
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparante zwarte achtergrond */
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+#homepage section:nth-of-type(6) ul li a:hover {
+  background-color: #ec3648;
+}
+
+/* 5DE SECTIE HOME MORE THAN */
+#homepage section:nth-of-type(7) {
+  display: grid;
+  grid-template-rows: repeat(6, minmax(0, auto));
+  width: 100%;
+  height: 60vh; 
+  position: relative;
+  justify-items: center;
+  text-align: center;
+  background-image: url("images/homepage.jpg"); 
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+#homepage section:nth-of-type(7) img {
+  width: 100%;
+  height: 95%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
+}
+
+#homepage section:nth-of-type(7) h3,
+#homepage section:nth-of-type(7) ul {
+  z-index: 2;
+  color: white;
+  font-family: "Integralbold", sans-serif;
+}
+
+#homepage section:nth-of-type(7) h3 {
+  grid-row: 4;
+  font-size: 2rem;
+  width: 70%;
+}
+
+#homepage section:nth-of-type(7) ul {
+  grid-row: 5;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+#homepage section:nth-of-type(7) ul li {
+  padding: 0.3em 4em;
+  width: 70%;
+  background-color: #ec3648;
+}
+
+#homepage section:nth-of-type(7) ul li a {
+  color: white;
+  background-color: #ec3648;
+  font-family: "Manifoldreg";
+  text-align: center;
+  padding: 0.6rem;
+  letter-spacing: 0.15em;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+}
+
+#homepage section:nth-of-type(7) ul li a:hover {
+  background-color: #c0392b;
+}
+
+
+/* 6DE SECTIE HOME THERE FOR YOU */
+homepage section:nth-of-type(8) {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f4f4f4; 
+}
+
+#homepage section:nth-of-type(8) h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: start;
+  margin-bottom: 2rem;
+  padding-left: 1em;
+  color: #333;
+}
+
+/* Scrollbare container */
+#homepage section:nth-of-type(8) ul {
+  display: flex;
+  overflow-x: scroll; 
+  list-style: none;
+  gap: 0.1rem; 
+  scroll-behavior: smooth; /* Zorgt voor soepel scrollen */
+  padding: 0;
+  margin: 0;
+}
+
+#homepage section:nth-of-type(8) ul::-webkit-scrollbar {
+  height: 8px; /* Hoogte van de scrollbar */
+}
+
+#homepage section:nth-of-type(8) ul::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar thumb kleur */
+  border-radius: 10px;
+}
+
+/* Stijling van de afbeelding en de lijstitems */
+#homepage section:nth-of-type(8) ul li {
+  position: relative;
+  min-width: 300px; /* Zodat elk item een consistente breedte heeft */
+  flex-shrink: 0; /* Voorkomt dat de items krimpen */
+}
+
+#homepage section:nth-of-type(8) ul li img {
+  width: 80%;
+  height: 90%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  padding: 0;
+  margin: 0;
+}
+
+#homepage section:nth-of-type(8) ul li:hover img {
+  transform: scale(1.05); /* Kleine zoom-in bij hover */
+}
+
+/* Tekst overlay stijling */
+#homepage section:nth-of-type(8) ul li a {
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparante zwarte achtergrond */
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+
+/* 7DE SECTIE HOME LATEST */
+
+#homepage section:nth-of-type(9){
+  padding: 40px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* Titel van de sectie */
+#homepage section:nth-of-type(9) h3 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Ul-lijst stijl */
+#homepage section:nth-of-type(9) ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+/* Algemene styling voor elk item (li) */
+#homepage section:nth-of-type(9) ul li a{
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+}
+
+/* Afbeelding styling */
+ul li:nth-child(9) ul li img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Algemene tekststyling */
+ul li:nth-child(9) ul lip {
+  margin: 0;
+  color: #333;
+}
+
+/* Titel van de blogpost */
+ul li:nth-child(9) p:nth-of-type(1) {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Meta-informatie zoals datum */
+ul li:nth-child(9) p:nth-of-type(2) {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Oneven items (afbeelding links, tekst rechts) */
+ul li:nth-child(odd) {
+  flex-direction: row;
+}
+
+/* Even items (afbeelding rechts, tekst links) */
+ul li:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+
+/**************/
 /* PT-pagina */
+/**************/
+
 /******************************/
 /* PT-PAGINA: SECTIES STYLING */
 /******************************/
 
-/* Eerste sectie met afbeelding en knoppen */
+/* EERSTE SECTIE PT */
 #pt-page section:nth-of-type(1) {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
-  height: 60vh;
+  height: 55vh;
   text-align: center;
 }
 
@@ -540,29 +1014,31 @@ button span {
   position: relative;
   display: flex;
   flex-direction: column;
+  top: 20%;
   z-index: 2;
 }
 
 #pt-page section:nth-of-type(1) ul li {
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   background-color: #ec3648;
   margin-bottom: 0.5rem;
 }
 
+
 #pt-page section:nth-of-type(1) ul li a {
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   text-align: center;
 }
 
-/* Tweede sectie met tekst en afbeelding */
+/* TWEEDE SECTIE PT*/
 
 #pt-page section:nth-of-type(2) {
   position: relative;
-  height: 900px; /* Stel een vaste hoogte in voor de sectie */
+  height: 900px; 
   display: flex;
-  justify-content: flex-start; /* Uitlijning voor de afbeelding en tekst */
+  justify-content: flex-start; 
   align-items: flex-start;
 }
 
@@ -570,9 +1046,9 @@ button span {
   position: absolute;
   top: 5%;
   left: 0;
-  width: 90%; /* De afbeelding beslaat ongeveer de helft van de breedte */
+  width: 90%; 
   height: 40%;
-  object-fit: cover; /* Zorg dat de afbeelding de ruimte vult zonder vervorming */
+  object-fit: cover; 
   z-index: 1;
 }
 
@@ -581,55 +1057,63 @@ button span {
   top: 20%;
   right: 0;
   bottom: 0;
-  width: 90%; /* Het tekstvak beslaat de helft van de breedte */
+  width: 90%; 
   height: 70%;
   padding: 2rem;
-  background-color: #fff; /* Witte achtergrond voor het tekstvak */
+  background-color: #f4f4f4; 
   z-index: 2;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Lichte schaduw voor diepte */
 }
 
 #pt-page section:nth-of-type(2) h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  padding-left: 1em;
+  padding-top: 1em;
   margin-bottom: 1rem;
   color: #333; /* Donkere tekstkleur */
+  font-family: ;
+
 }
 
 #pt-page section:nth-of-type(2) p {
   font-size: 1rem;
   color: #555;
   margin-bottom: 1rem;
-  line-height: 1.6;
+  line-height: 1.6em;
+  padding-left: 1.8em;
+  padding-top: 1em;
+  
 }
 
 #pt-page section:nth-of-type(2) a {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
+  margin-left: 2.2em;
+  margin-top: 0.8em;
   background-color: white;
   color: black;
   font-weight: bold;
   border: 2px solid black;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.7em;
   text-align: center;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #pt-page section:nth-of-type(2) a:hover {
-  background-color: #ec3648; /* Rode achtergrond bij hover */
+  background-color:var(--background-background-color);
   color: white;
 }
 
-/* Derde sectie met aanbiedingen */
+/* DERDE SECTIE PT */
 #pt-page section:nth-of-type(3) {
   position: relative;
-  height: 750px; /* Stel een vaste hoogte in voor de sectie */
+  height: 750px; 
   display: flex;
-  justify-content: flex-start; /* Uitlijning voor de afbeelding en tekst */
+  justify-content: flex-start; 
   align-items: flex-start;
-  margin-bottom: 3rem; /* Voeg ruimte toe tussen secties */
+  margin-bottom: 3rem; 
 }
 
 #pt-page section:nth-of-type(3) img {
@@ -643,20 +1127,22 @@ button span {
 }
 
 #pt-page section:nth-of-type(3) div {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   right: 10%;
   bottom: 0;
   top: 15%;
   width: 5; /* Het tekstvak beslaat de helft van de breedte */
-  padding: 2rem;
+  padding: 2em;
   height: 600px;
-  background-color: #fff; /* Witte achtergrond voor het tekstvak */
+  background-color: #f4f4f4; /* Witte achtergrond voor het tekstvak */
   z-index: 2;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Lichte schaduw voor diepte */
 }
 
 #pt-page section:nth-of-type(3) h3 {
-  font-size: 2rem;
+  
+  font-size: 1.5em;
   font-weight: bold;
   margin-bottom: 1rem;
   color: #333; /* Donkere tekstkleur */
@@ -688,7 +1174,7 @@ button span {
   color: white;
 }
 
-/* stukje 4 met aanbiedingen */
+/* VIERDE SECTIE PT*/
 #pt-page section:nth-of-type(4) {
   position: relative;
   height: 900px; /* Stel een vaste hoogte in voor de sectie */
@@ -714,7 +1200,7 @@ button span {
   width: 90%; /* Het tekstvak beslaat de helft van de breedte */
   height: 70%;
   padding: 2rem;
-  background-color: #fff; /* Witte achtergrond voor het tekstvak */
+  background-color: #f4f4f4; /* Witte achtergrond voor het tekstvak */
   z-index: 2;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Lichte schaduw voor diepte */
 }
@@ -752,98 +1238,226 @@ button span {
   color: white;
 }
 
-/* Meer Personal */
-
-/* SOCIAL WALL */
-
-#homepage section:nth-of-type(4) {
+/* 5DE SECTIE PT MORE Personal */
+/* Algemene sectie-styling */
+#pt-page section:nth-of-type(5) {
   text-align: center;
   padding: 2rem;
-  background-color: #f4f4f4; /* Lichte achtergrondkleur */
-  margin: 0 auto;
+  background-color: #fff;
 }
 
-#homepage section:nth-of-type(4) h3 {
+#pt-page section:nth-of-type(5) h3 {
+  font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 1rem;
-  font-family: "Integralbold";
-}
-
-#homepage section:nth-of-type(4) p {
-  font-size: 1.2rem;
-  text-transform: uppercase;
+  text-align: start;
   margin-bottom: 2rem;
-  letter-spacing: 0.1em;
-  font-family: "Integralbold";
+  padding-left: 1em;
+  color: #333;
 }
 
-/******************************/
-/* Image grid styling */
-/******************************/
-/* Styling voor de sectie */
-#homepage section:nth-of-type(4) {
-  text-align: center;
-  padding: 2rem;
-  background-color: #f4f4f4; /* Lichte achtergrondkleur */
-}
-
-/* H3 en H4 styling voor de titels */
-
-/* Styling voor de sectie */
-#homepage section:nth-of-type(4) {
-  text-align: center;
-  padding: 2rem;
-  background-color: #ffffff; /* Lichte achtergrondkleur */
-}
-
-/* H3 en H4 styling voor de titels, links uitlijnen */
-#homepage section:nth-of-type(4) h3,
-#homepage section:nth-of-type(4) h4 {
-  text-align: left; /* Zorg ervoor dat de titels links zijn uitgelijnd */
-  margin-left: 2rem; /* Voeg wat marge toe aan de linkerkant om wat ruimte te creëren */
-}
-
-#homepage section:nth-of-type(4) h3 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-#homepage section:nth-of-type(4) h4 {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  letter-spacing: 0.1em;
-}
-
-/* Styling voor de ul en li */
-#homepage section:nth-of-type(4) ul {
+/* Scrollbare container */
+#pt-page section:nth-of-type(5) ul {
+  display: flex;
+  overflow-x: scroll; /* Hiermee kan horizontaal gescrold worden */
   list-style: none;
+  gap: 0.1rem; /* Ruimte tussen de items */
+  scroll-behavior: smooth; /* Zorgt voor soepel scrollen */
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(
-    2,
-    1fr
-  ); /* Zet twee afbeeldingen naast elkaar */
-  gap: 1rem; /* Voeg ruimte toe tussen de afbeeldingen */
-  justify-items: center;
 }
 
-/* Styling voor de afbeeldingen om vierkant te maken */
-#homepage section:nth-of-type(4) li img {
-  width: 100%;
-  max-width: 400px; /* Zorg ervoor dat de afbeelding niet breder is dan 300px */
-  height: 200px; /* Maak de afbeelding vierkant */
-  object-fit: cover; /* Zorgt ervoor dat de afbeelding de ruimte vult zonder vervorming */
+#pt-page section:nth-of-type(5) ul::-webkit-scrollbar {
+  height: 8px; /* Hoogte van de scrollbar */
+}
+
+#pt-page section:nth-of-type(5) ul::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar thumb kleur */
+  border-radius: 10px;
+}
+
+/* Stijling van de afbeelding en de lijstitems */
+#pt-page section:nth-of-type(5) ul li {
+  position: relative;
+  min-width: 300px; /* Zodat elk item een consistente breedte heeft */
+  flex-shrink: 0; /* Voorkomt dat de items krimpen */
+}
+
+#pt-page section:nth-of-type(5) ul li img {
+  width: 80%;
+  height: 90%;
   display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  padding: 0;
+  margin: 0;
 }
 
-/* Styling voor de knop */
-#homepage section:nth-of-type(4) button {
-  width: 10%;
+#pt-page section:nth-of-type(5) ul li:hover img {
+  transform: scale(1.05); /* Kleine zoom-in bij hover */
 }
 
+/* Tekst overlay stijling */
+#pt-page section:nth-of-type(5) ul li a {
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparante zwarte achtergrond */
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
 
+#pt-page section:nth-of-type(5) ul li a:hover {
+  background-color: #ec3648; /* Achtergrondkleur verandert bij hover */
+}
+
+/* Border effect */
+#pt-page section:nth-of-type(5) ul li {
+  background: linear-gradient(white, white),
+    linear-gradient(90deg, rgb(82, 80, 80) 0%, transparent 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+/* 6DE STUKJE PT*/
+
+#pt-page section:nth-of-type(6) {
+  position: relative;
+  height: 900px; /* Stel een vaste hoogte in voor de sectie */
+  display: flex;
+  justify-content: flex-start; /* Uitlijning voor de afbeelding en tekst */
+  align-items: flex-start;
+}
+
+#pt-page section:nth-of-type(6) img {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  width: 90%; /* De afbeelding beslaat ongeveer de helft van de breedte */
+  height: 40%;
+  object-fit: cover; /* Zorg dat de afbeelding de ruimte vult zonder vervorming */
+  z-index: 1;
+}
+
+#pt-page section:nth-of-type(6) div {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  bottom: 0;
+  width: 90%; /* Het tekstvak beslaat de helft van de breedte */
+  height: 70%;
+  padding: 2rem;
+  background-color: #f4f4f4; /* Witte achtergrond voor het tekstvak */
+  z-index: 2;
+}
+
+#pt-page section:nth-of-type(6) h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333; /* Donkere tekstkleur */
+}
+
+#pt-page section:nth-of-type(6) p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+#pt-page section:nth-of-type(6) a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#pt-page section:nth-of-type(6) a:hover {
+  background-color: #ec3648; /* Rode achtergrond bij hover */
+  color: white;
+}
+
+/* 7DE STUKJE PT */
+
+#pt-page section:nth-of-type(7) {
+  position: relative;
+  height: 800px; /* Stel een vaste hoogte in voor de sectie */
+  display: flex;
+  justify-content: flex-start; /* Uitlijning voor de afbeelding en tekst */
+  align-items: flex-start;
+  margin-bottom: 3rem; /* Voeg ruimte toe tussen secties */
+}
+
+#pt-page section:nth-of-type(7) img {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 90%; /* De afbeelding beslaat ongeveer de helft van de breedte */
+  height: 70%;
+  object-fit: cover; /* Zorg dat de afbeelding de ruimte vult zonder vervorming */
+  z-index: 1;
+}
+
+#pt-page section:nth-of-type(7) div {
+  position: absolute;
+  right: 10%;
+  left: 0%;
+  bottom: 0;
+  top: 0%;
+  width: 5; /* Het tekstvak beslaat de helft van de breedte */
+  padding: 2rem;
+  height: 400px;
+  background-color: #f4f4f4; /* Witte achtergrond voor het tekstvak */
+  z-index: 2;
+}
+
+#pt-page section:nth-of-type(7) h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333; /* Donkere tekstkleur */
+  z-index: 3;
+}
+
+#pt-page section:nth-of-type(7) p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+#pt-page section:nth-of-type(7) a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#pt-page section:nth-of-type(7) a:hover {
+  background-color: #ec3648; /* Rode achtergrond bij hover */
+  color: white;
+}
+
+/* 8STE STUKJE PT clubtrainers */
+
+/* 9DE STUKJE PT FAQ */
