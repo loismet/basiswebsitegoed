@@ -69,20 +69,24 @@ p {
 :root {
   /* startje */
   --color-text: #111;
-  --text-color:white;
+  --text-color: white;
   --main-bg-color: white;
   --color-background-background: #f4f4f4;
   --header-height: 80px;
-  --background-background-color:black;
-  --font
-  --font-family-1:'IntegralCF-Regular';
-  --font-2:'';
-  --font-3:;
-  --font-4:;
-  --font-5:;
-  --font-6:;
-  --font-6:;
-
+  --background-background-color: black;
+  --font-size-h3: 1.1em;
+  --font-size-h3-2: 1.5em;
+  --font-1: "IntegralCF";
+  --font-2: "Integralbold";
+  --font-3: "Integralxbold";
+  --font-4: "Integralheavy";
+  --font-5: "Manifoldreg";
+  --font-6: "Manifoldxbold";
+  --font-7: "Manifolddemi";
+  --buton-p1-color: #ec3648;
+  --font-button: rgb(255, 255, 255);
+  --hover-button: black;
+  --boder-color: black;
 }
 
 /****************/
@@ -123,10 +127,10 @@ main {
 }
 
 img {
-  width: 100%; /* Zorgt ervoor dat de afbeelding de volledige breedte van het scherm beslaat */
-  height: auto; /* Houdt de verhoudingen van de afbeelding intact */
-  object-fit: cover; /* Zorgt ervoor dat de afbeelding het hele gebied bedekt zonder vervorming */
-  max-width: 100vw; /* Zorgt ervoor dat de afbeelding niet breder is dan het viewport-breedte */
+  width: 100%; 
+  height: auto; 
+  object-fit: cover; 
+  max-width: 100vw; 
 }
 
 /***********/
@@ -149,7 +153,7 @@ header {
 
 header h1 {
   font-size: 1.5rem;
-  color:var(--color-text);
+  color: var(--color-text);
 }
 
 header nav {
@@ -178,7 +182,6 @@ header nav ul li a {
   transition: color 0.3s ease;
 }
 
-
 /* HAMBURGER MENU */
 button {
   background: none;
@@ -186,7 +189,7 @@ button {
   cursor: pointer;
   width: 22px;
   height: 14px;
-  display: none; /* Verberg op grote schermen */
+  display: none; 
   flex-direction: column;
   justify-content: space-between;
 }
@@ -195,7 +198,7 @@ button span {
   display: block;
   width: 100%;
   height: 2px;
-  background-color:var(--background-background-color);
+  background-color: var(--background-background-color);
   transition: all 0.3s ease;
 }
 
@@ -203,10 +206,9 @@ button span {
 @media (max-width: 1020px) {
   /* Toon de hamburgerknop op kleinere schermen */
   button {
-    display: flex; /* Maak de hamburgerknop zichtbaar */
+    display: flex; 
   }
 
-  /* Zorg dat de navigatie verborgen is op mobiele schermen */
   header nav ul {
     position: fixed;
     top: var(--header-height);
@@ -214,7 +216,7 @@ button span {
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    background-color:var(--background-background-color);
+    background-color: var(--background-background-color);
     display: none;
     z-index: 9;
   }
@@ -276,11 +278,11 @@ button span {
   display: grid;
   grid-template-rows: repeat(6, minmax(0, auto));
   width: 100%;
-  height: 60vh; /* Of gebruik een andere waarde voor de hoogte */
+  height: 60vh; 
   position: relative;
   justify-items: center;
   text-align: center;
-  background-image: url("images/homepage.jpg"); /* Voeg je hero-afbeelding toe */
+  background-image: url("images/homepage.jpg"); 
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -308,12 +310,12 @@ button span {
 #homepage section:nth-of-type(1) h2 {
   grid-row: 2;
   font-size: 2.5rem;
-  align-self: end; /* Of gebruik 'center' of 'end' om de positie binnen de grid-rij te veranderen */
+  align-self: end;
 }
 
 #homepage section:nth-of-type(1) h3 {
   grid-row: 3;
-  font-size: 1.1rem;
+  font-size: var(--font-size-h3);
   padding-top: 1em;
   height: 0.4em;
 }
@@ -349,7 +351,7 @@ button span {
 }
 
 #homepage section:nth-of-type(1) ul li a:hover {
-  background-color: #c0392b;
+  background-color: black;
 }
 
 /* BANNERS  */
@@ -361,67 +363,65 @@ button span {
   flex-direction: column;
   width: 100%;
   height: 100px;
-  position: relative; /* Zorgt ervoor dat we elementen binnen deze sectie kunnen positioneren */
-  overflow: hidden; /* Zorgt ervoor dat de scrollende tekst buiten de banner niet zichtbaar is */
-} 
+  position: relative; 
+  overflow: hidden; 
+}
 
 /* Scrollende tekst op de achtergrond */
 #homepage section:nth-of-type(2) p {
-  position: absolute; /* Plaatst de tekst los van andere elementen */
-  z-index: 1; /* Zorgt ervoor dat de tekst achter de knop blijft */
+  position: absolute; 
+  z-index: 1;  
   font-size: 4rem;
   font-family: "Integralxbold";
   animation: scroll-text 10s linear infinite;
-  white-space: nowrap; /* Zorgt ervoor dat de tekst niet wordt afgebroken */
-  top: 10%; /* Zorgt ervoor dat de tekst verticaal gecentreerd is */
+  white-space: nowrap; 
+  top: 10%; 
 }
 
 /* Duplicatie van de tekst */
 #homepage section:nth-of-type(2) p::after {
-  content: attr(data-text); /* Dupliceert de tekst in de pseudo-element */
+  content: attr(data-text); 
   position: absolute;
   white-space: nowrap;
   top: 0;
-  left: 100%; /* Plaats de duplicaattekst net na het originele */
+  left: 100%; 
 }
 
 @keyframes scroll-text {
   0% {
     transform: translateX(
       100vw
-    ); /* Start buiten het scherm aan de rechterkant */
+    ); 
   }
   100% {
     transform: translateX(
       -100%
-    ); /* Eindig buiten het scherm aan de linkerkant */
+    ); 
   }
 }
 
 #homepage section:nth-of-type(2) div {
   display: flex;
-  justify-content: space-evenly; /* Verdeel de SVG's gelijkmatig */
-  align-items:flex-end;
+  justify-content: space-evenly; 
+  align-items: flex-end;
   left: 70%;
   bottom: 35%;
-  width:20%;
-  height: 10px; /* Stel een vaste hoogte in voor de SVG-container */
+  width: 20%;
+  height: 10px; 
   position: relative;
-  margin-top: 20px; /* Ruimte tussen de tekst en de SVG's */
+  margin-top: 20px; 
 }
 
 #homepage section:nth-of-type(2) div svg {
   width: 1em;
   padding: 0;
   height: 4em;
-
 }
-
 
 /* Knop styling */
 #homepage section:nth-of-type(2) a {
-  position: relative; /* Zorgt ervoor dat de knop bovenop de tekst wordt geplaatst */
-  z-index: 2; /* Zorgt ervoor dat de knop boven de scrollende tekst komt */
+  position: relative; 
+  z-index: 2; 
   padding: 0.5rem 1rem;
   width: 10em;
   margin: auto;
@@ -431,16 +431,14 @@ button span {
   font-size: 1rem;
   border-radius: 5px;
   text-align: center;
-  text-decoration: none; /* Verwijdert de standaard onderstreping */
+  text-decoration: none; 
   margin-top: 1rem;
-  font-weight: bold; /* Maakt de tekst in de knop vetgedrukt */
+  font-weight: bold; 
 }
 
 #homepage section:nth-of-type(2) a:hover {
-  background-color: #c0392b; /* Donkere rode kleur bij hover */
+  background-color: #c0392b; 
 }
-
-
 
 /* BANNER 2 */
 #homepage section:nth-of-type(4) {
@@ -449,19 +447,19 @@ button span {
   flex-direction: column;
   width: 100%;
   height: 150px;
-  position: relative; /* Zorgt ervoor dat we elementen binnen deze sectie kunnen positioneren */
-  overflow: hidden; /* Zorgt ervoor dat de scrollende tekst buiten de banner niet zichtbaar is */
+  position: relative;
+  overflow: hidden; 
 }
 
 /* Scrollende tekst op de achtergrond */
 #homepage section:nth-of-type(4) p {
-  position: absolute; /* Plaatst de tekst los van andere elementen */
-  z-index: 1; /* Zorgt ervoor dat de tekst achter de knop blijft */
+  position: absolute; 
+  z-index: 1; 
   font-size: 4em;
   font-family: "Integralxbold";
   animation: scroll-text 10s linear infinite;
   white-space: nowrap; /* Zorgt ervoor dat de tekst niet wordt afgebroken */
-  top: 10%; /* Zorgt ervoor dat de tekst verticaal gecentreerd is */
+  top: 10%; 
 }
 
 /* Knop styling */
@@ -476,10 +474,10 @@ button span {
   font-size: 0.9em;
   display: flex;
   justify-content: center;
-  text-decoration: none; /* Verwijdert de standaard onderstreping */
+  text-decoration: none; 
   letter-spacing: 0.1em;
   margin-top: 1em;
-  font-weight: bold; /* Maakt de tekst in de knop vetgedrukt */
+  font-weight: bold; 
   align-self: flex-start;
   left: 12%;
   top: 40%;
@@ -487,30 +485,29 @@ button span {
 
 #homepage section:nth-of-type(4) div {
   display: flex;
-  justify-content: space-evenly; /* Verdeel de SVG's gelijkmatig */
-  align-items:flex-end;
+  justify-content: space-evenly; 
+  align-items: flex-end;
   left: 70%;
   bottom: 5%;
-  width:20%;
-  height: 10px; /* Stel een vaste hoogte in voor de SVG-container */
+  width: 20%;
+  height: 10px; 
   position: relative;
-  margin-top: 20px; /* Ruimte tussen de tekst en de SVG's */
+  margin-top: 20px; 
 }
 
 #homepage section:nth-of-type(4) div svg {
   width: 1em;
   padding: 0;
   height: 4em;
-
 }
 
 #homepage section:nth-of-type(4) a:hover {
-  background-color: black; /* Donkere rode kleur bij hover */
+  background-color: black; 
 }
 /* 2DE SECTIE HOME LOCATIELIJST*/
 #homepage section:nth-of-type(3) {
   padding: 2rem;
-  background-color: #f4f4f4; /* Lichte achtergrondkleur */
+  background-color: #f4f4f4; 
   text-align: left;
   margin-left: 2em;
 }
@@ -550,21 +547,20 @@ button span {
 
 /* Stijling voor de pijltjes naar beneden en omhoog */
 #homepage section:nth-of-type(3) summary::after {
-  content: ""; /* Verwijder de standaard tekstweergave */
-  border: solid black; /* Gebruik een zwarte rand */
-  border-width: 0 2px 2px 0; /* Definieer de breedte van de randen om een driehoek te vormen */
+  border: solid black; 
+  border-width: 0 2px 2px 0; 
   display: inline-block;
-  padding: 5px; /* Verhoog de padding om de grootte van het pijltje aan te passen */
-  transform: rotate(45deg); /* Roteer om het naar beneden te laten wijzen */
+  padding: 5px; 
+  transform: rotate(45deg); 
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translateY(-50%) rotate(45deg); /* Zorg dat het pijltje verticaal gecentreerd is */
+  transform: translateY(-50%) rotate(45deg); 
 }
 
 /* Pijltje naar boven wanneer details geopend zijn */
 #homepage section:nth-of-type(3) details[open] summary::after {
-  transform: translateY(-50%) rotate(-135deg); /* Roteer om het naar boven te laten wijzen */
+  transform: translateY(-50%) rotate(-135deg); 
 }
 
 /* Stijling voor de dropdown inhoud (locaties) */
@@ -588,7 +584,7 @@ button span {
 #homepage section:nth-of-type(5) {
   text-align: center;
   padding: 2rem;
-  background-color: #f4f4f4; /* Lichte achtergrondkleur */
+  background-color: #f4f4f4;
   margin: 0 auto;
   height: 100%;
   margin-top: 2em;
@@ -613,7 +609,7 @@ button span {
 #homepage section:nth-of-type(5) {
   text-align: center;
   padding: 2rem;
-  background-color: #f4f4f4; /* Lichte achtergrondkleur */
+  background-color: #f4f4f4; 
 }
 
 /* H3 en H4 styling voor de titels */
@@ -622,14 +618,14 @@ button span {
 #homepage section:nth-of-type(5) {
   text-align: center;
   padding: 2rem;
-  background-color: #f4f4f4; /* Lichte achtergrondkleur */
+  background-color: #f4f4f4; /
 }
 
 /* H3 en H4 styling voor de titels, links uitlijnen */
 #homepage section:nth-of-type(5) h3,
 #homepage section:nth-of-type(5) h4 {
-  text-align: left; /* Zorg ervoor dat de titels links zijn uitgelijnd */
-  margin-left: 2rem; /* Voeg wat marge toe aan de linkerkant om wat ruimte te creëren */
+  text-align: left; 
+  margin-left: 2rem; 
 }
 
 #homepage section:nth-of-type(5) h3 {
@@ -658,7 +654,7 @@ button span {
     2,
     1fr
   ); /* Zet twee afbeeldingen naast elkaar */
-  gap: 1rem; /* Voeg ruimte toe tussen de afbeeldingen */
+  gap: 1rem;
   justify-items: center;
   width: 100%;
 }
@@ -666,9 +662,9 @@ button span {
 /* Styling voor de afbeeldingen om vierkant te maken */
 #homepage section:nth-of-type(5) li img {
   width: 100%;
-  max-width: 300px; /* Zorg ervoor dat de afbeelding niet breder is dan 300px */
+  max-width: 300px; 
   aspect-ratio: 1/1;
-  object-fit: cover; /* Zorgt ervoor dat de afbeelding de ruimte vult zonder vervorming */
+  object-fit: cover; 
   display: block;
 }
 
@@ -686,6 +682,7 @@ button span {
   background-color: #000;
   color: #fff;
   padding: 1em;
+  font-family: var(--font-5);
 }
 
 /* 4DE SECTIE HOME MORE MORE */
@@ -693,7 +690,7 @@ button span {
 #homepage section:nth-of-type(6) {
   text-align: center;
   padding: 2rem;
-  background-color: #f4f4f4; /* Lichte achtergrondkleur */
+  background-color: #f4f4f4; 
 }
 
 #homepage section:nth-of-type(6) h3 {
@@ -709,10 +706,10 @@ button span {
 /* Scrollbare container */
 #homepage section:nth-of-type(6) ul {
   display: flex;
-  overflow-x: scroll; /* Hiermee kan horizontaal gescrold worden */
+  overflow-x: scroll; 
   list-style: none;
-  gap: 0.1rem; /* Ruimte tussen de items */
-  scroll-behavior: smooth; /* Zorgt voor soepel scrollen */
+  gap: 0.1rem; 
+  scroll-behavior: smooth; 
   padding: 0;
   margin: 0;
 }
@@ -722,15 +719,14 @@ button span {
 }
 
 #homepage section:nth-of-type(6) ul::-webkit-scrollbar-thumb {
-  background-color: #888; /* Scrollbar thumb kleur */
-  border-radius: 10px;
+  background-color: #888; 
 }
 
 /* Stijling van de afbeelding en de lijstitems */
 #homepage section:nth-of-type(6) ul li {
   position: relative;
-  min-width: 300px; /* Zodat elk item een consistente breedte heeft */
-  flex-shrink: 0; /* Voorkomt dat de items krimpen */
+  min-width: 300px; 
+  flex-shrink: 0; 
 }
 
 #homepage section:nth-of-type(6) ul li img {
@@ -744,7 +740,7 @@ button span {
 }
 
 #homepage section:nth-of-type(6) ul li:hover img {
-  transform: scale(1.05); /* Kleine zoom-in bij hover */
+  transform: scale(1.05); =
 }
 
 /* Tekst overlay stijling */
@@ -754,7 +750,7 @@ button span {
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparante zwarte achtergrond */
+  background: rgba(0, 0, 0, 0.7); 
   color: white;
   font-weight: bold;
   text-transform: uppercase;
@@ -772,11 +768,11 @@ button span {
   display: grid;
   grid-template-rows: repeat(6, minmax(0, auto));
   width: 100%;
-  height: 60vh; 
+  height: 60vh;
   position: relative;
   justify-items: center;
   text-align: center;
-  background-image: url("images/homepage.jpg"); 
+  background-image: url("images/homepage.jpg");
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -836,12 +832,11 @@ button span {
   background-color: #c0392b;
 }
 
-
 /* 6DE SECTIE HOME THERE FOR YOU */
 homepage section:nth-of-type(8) {
   text-align: center;
   padding: 2rem;
-  background-color: #f4f4f4; 
+  background-color: #f4f4f4;
 }
 
 #homepage section:nth-of-type(8) h3 {
@@ -857,28 +852,28 @@ homepage section:nth-of-type(8) {
 /* Scrollbare container */
 #homepage section:nth-of-type(8) ul {
   display: flex;
-  overflow-x: scroll; 
+  overflow-x: scroll;
   list-style: none;
-  gap: 0.1rem; 
-  scroll-behavior: smooth; /* Zorgt voor soepel scrollen */
+  gap: 0.1rem;
+  scroll-behavior: smooth; 
   padding: 0;
   margin: 0;
 }
 
 #homepage section:nth-of-type(8) ul::-webkit-scrollbar {
-  height: 8px; /* Hoogte van de scrollbar */
+  height: 8px; 
 }
 
 #homepage section:nth-of-type(8) ul::-webkit-scrollbar-thumb {
-  background-color: #888; /* Scrollbar thumb kleur */
+  background-color: #888; 
   border-radius: 10px;
 }
 
 /* Stijling van de afbeelding en de lijstitems */
 #homepage section:nth-of-type(8) ul li {
   position: relative;
-  min-width: 300px; /* Zodat elk item een consistente breedte heeft */
-  flex-shrink: 0; /* Voorkomt dat de items krimpen */
+  min-width: 300px; /
+  flex-shrink: 0; 
 }
 
 #homepage section:nth-of-type(8) ul li img {
@@ -892,7 +887,7 @@ homepage section:nth-of-type(8) {
 }
 
 #homepage section:nth-of-type(8) ul li:hover img {
-  transform: scale(1.05); /* Kleine zoom-in bij hover */
+  transform: scale(1.05);
 }
 
 /* Tekst overlay stijling */
@@ -902,7 +897,7 @@ homepage section:nth-of-type(8) {
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparante zwarte achtergrond */
+  background: rgba(0, 0, 0, 0.7); 
   color: white;
   font-weight: bold;
   text-transform: uppercase;
@@ -911,10 +906,9 @@ homepage section:nth-of-type(8) {
   transition: background-color 0.3s ease;
 }
 
-
 /* 7DE SECTIE HOME LATEST */
 
-#homepage section:nth-of-type(9){
+#homepage section:nth-of-type(9) {
   padding: 40px;
   background-color: #fff;
   font-family: Arial, sans-serif;
@@ -934,10 +928,8 @@ homepage section:nth-of-type(8) {
   padding: 0;
 }
 
-
 /* Algemene styling voor elk item (li) */
-#homepage section:nth-of-type(9) ul li a{
-  
+#homepage section:nth-of-type(9) ul li a {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -982,7 +974,6 @@ ul li:nth-child(even) {
   flex-direction: row-reverse;
 }
 
-
 /**************/
 /* PT-pagina */
 /**************/
@@ -1024,21 +1015,21 @@ ul li:nth-child(even) {
   margin-bottom: 0.5rem;
 }
 
-
 #pt-page section:nth-of-type(1) ul li a {
   color: white;
   text-decoration: none;
   font-size: 0.8rem;
   text-align: center;
+  font-family: "Manifoldxbold";
 }
 
 /* TWEEDE SECTIE PT*/
 
 #pt-page section:nth-of-type(2) {
   position: relative;
-  height: 900px; 
+  height: 900px;
   display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   align-items: flex-start;
 }
 
@@ -1046,9 +1037,9 @@ ul li:nth-child(even) {
   position: absolute;
   top: 5%;
   left: 0;
-  width: 90%; 
+  width: 90%;
   height: 40%;
-  object-fit: cover; 
+  object-fit: cover;
   z-index: 1;
 }
 
@@ -1057,10 +1048,10 @@ ul li:nth-child(even) {
   top: 20%;
   right: 0;
   bottom: 0;
-  width: 90%; 
+  width: 90%;
   height: 70%;
   padding: 2rem;
-  background-color: #f4f4f4; 
+  background-color: #f4f4f4;
   z-index: 2;
 }
 
@@ -1070,9 +1061,8 @@ ul li:nth-child(even) {
   padding-left: 1em;
   padding-top: 1em;
   margin-bottom: 1rem;
-  color: #333; /* Donkere tekstkleur */
-  font-family: ;
-
+  color: #333; 
+  font-family: "Integralbold";
 }
 
 #pt-page section:nth-of-type(2) p {
@@ -1082,7 +1072,6 @@ ul li:nth-child(even) {
   line-height: 1.6em;
   padding-left: 1.8em;
   padding-top: 1em;
-  
 }
 
 #pt-page section:nth-of-type(2) a {
@@ -1099,30 +1088,31 @@ ul li:nth-child(even) {
   font-size: 0.7em;
   text-align: center;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Manifoldxbold";
 }
 
 #pt-page section:nth-of-type(2) a:hover {
-  background-color:var(--background-background-color);
+  background-color: var(--background-background-color);
   color: white;
 }
 
 /* DERDE SECTIE PT */
 #pt-page section:nth-of-type(3) {
   position: relative;
-  height: 750px; 
+  height: 750px;
   display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom: 3rem; 
+  margin-bottom: 3rem;
 }
 
 #pt-page section:nth-of-type(3) img {
   position: absolute;
   top: 0;
   left: 10%;
-  width: 90%; /* De afbeelding beslaat ongeveer de helft van de breedte */
+  width: 90%; 
   height: 55%;
-  object-fit: cover; /* Zorg dat de afbeelding de ruimte vult zonder vervorming */
+  object-fit: cover;
   z-index: 1;
 }
 
@@ -1133,19 +1123,20 @@ ul li:nth-child(even) {
   right: 10%;
   bottom: 0;
   top: 15%;
-  width: 5; /* Het tekstvak beslaat de helft van de breedte */
+  width: 5; 
   padding: 2em;
   height: 600px;
-  background-color: #f4f4f4; /* Witte achtergrond voor het tekstvak */
+  background-color: #f4f4f4; 
   z-index: 2;
 }
 
 #pt-page section:nth-of-type(3) h3 {
-  
   font-size: 1.5em;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #333; /* Donkere tekstkleur */
+  color: #333; 
+  font-family: "Integralbold";
+  padding: 1em;
 }
 
 #pt-page section:nth-of-type(3) p {
@@ -1153,70 +1144,79 @@ ul li:nth-child(even) {
   color: #555;
   margin-bottom: 1rem;
   line-height: 1.6;
+  padding-left: 1.4em;
 }
 
 #pt-page section:nth-of-type(3) a {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
+  margin-left: 2.2em;
+  margin-top: 0.8em;
   background-color: white;
   color: black;
   font-weight: bold;
   border: 2px solid black;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.7em;
   text-align: center;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Manifoldxbold";
 }
 
 #pt-page section:nth-of-type(3) a:hover {
-  background-color: #ec3648; /* Rode achtergrond bij hover */
+  background-color: #ec3648; 
   color: white;
 }
 
 /* VIERDE SECTIE PT*/
 #pt-page section:nth-of-type(4) {
   position: relative;
-  height: 900px; /* Stel een vaste hoogte in voor de sectie */
+  height: 900px; 
   display: flex;
-  justify-content: flex-start; /* Uitlijning voor de afbeelding en tekst */
+  justify-content: flex-start; 
   align-items: flex-start;
 }
 
 #pt-page section:nth-of-type(4) img {
   position: absolute;
   left: 0;
-  width: 90%; /* De afbeelding beslaat ongeveer de helft van de breedte */
+  width: 90%; 
   height: 40%;
-  object-fit: cover; /* Zorg dat de afbeelding de ruimte vult zonder vervorming */
+  object-fit: cover; 
   z-index: 1;
 }
 
 #pt-page section:nth-of-type(4) div {
   position: absolute;
-  top: 20%;
+  top: %;
   right: 0;
   bottom: 0;
-  width: 90%; /* Het tekstvak beslaat de helft van de breedte */
+  width: 90%; 
   height: 70%;
   padding: 2rem;
-  background-color: #f4f4f4; /* Witte achtergrond voor het tekstvak */
+  background-color: #f4f4f4; 
   z-index: 2;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Lichte schaduw voor diepte */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 #pt-page section:nth-of-type(4) h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 1rem;
-  color: #333; /* Donkere tekstkleur */
+  margin-bottom: 1em;
+  padding-top: 1em;
+  padding-left: 1em;
+  color: #333; 
+  font-family: "Integralbold";
 }
 
 #pt-page section:nth-of-type(4) p {
   font-size: 1rem;
   color: #555;
   margin-bottom: 1rem;
-  line-height: 1.6;
+  line-height: 1.6em;
+  padding-left: 1.8em;
+  padding-top: 1em;
 }
 
 #pt-page section:nth-of-type(4) a {
@@ -1228,13 +1228,16 @@ ul li:nth-child(even) {
   border: 2px solid black;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: 1rem;
+  margin-left: 2.2em;
+  margin-top: 0.8em;
+  font-size: 0.7em;
   text-align: center;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Manifoldxbold";
 }
 
 #pt-page section:nth-of-type(4) a:hover {
-  background-color: #ffffff; /* Rode achtergrond bij hover */
+  background-color: #ffffff; 
   color: white;
 }
 
@@ -1249,38 +1252,39 @@ ul li:nth-child(even) {
 #pt-page section:nth-of-type(5) h3 {
   font-size: 1.5rem;
   font-weight: bold;
-  text-transform: uppercase;
-  text-align: start;
-  margin-bottom: 2rem;
-  padding-left: 1em;
+  padding-left: 2em;
+  padding-top: 1em;
+  margin-bottom: 1rem;
   color: #333;
+  font-family: "Integralbold";
 }
+
 
 /* Scrollbare container */
 #pt-page section:nth-of-type(5) ul {
   display: flex;
-  overflow-x: scroll; /* Hiermee kan horizontaal gescrold worden */
+  overflow-x: scroll;
   list-style: none;
-  gap: 0.1rem; /* Ruimte tussen de items */
-  scroll-behavior: smooth; /* Zorgt voor soepel scrollen */
+  gap: 0.1rem; 
+  scroll-behavior: smooth;
   padding: 0;
   margin: 0;
 }
 
 #pt-page section:nth-of-type(5) ul::-webkit-scrollbar {
-  height: 8px; /* Hoogte van de scrollbar */
+  height: 8px; 
 }
 
 #pt-page section:nth-of-type(5) ul::-webkit-scrollbar-thumb {
-  background-color: #888; /* Scrollbar thumb kleur */
+  background-color: #888; 
   border-radius: 10px;
 }
 
 /* Stijling van de afbeelding en de lijstitems */
 #pt-page section:nth-of-type(5) ul li {
   position: relative;
-  min-width: 300px; /* Zodat elk item een consistente breedte heeft */
-  flex-shrink: 0; /* Voorkomt dat de items krimpen */
+  min-width: 300px; 
+  flex-shrink: 0; 
 }
 
 #pt-page section:nth-of-type(5) ul li img {
@@ -1294,7 +1298,7 @@ ul li:nth-child(even) {
 }
 
 #pt-page section:nth-of-type(5) ul li:hover img {
-  transform: scale(1.05); /* Kleine zoom-in bij hover */
+  transform: scale(1.05); 
 }
 
 /* Tekst overlay stijling */
@@ -1304,7 +1308,7 @@ ul li:nth-child(even) {
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparante zwarte achtergrond */
+  background: rgba(0, 0, 0, 0.7); 
   color: white;
   font-weight: bold;
   text-transform: uppercase;
@@ -1314,7 +1318,7 @@ ul li:nth-child(even) {
 }
 
 #pt-page section:nth-of-type(5) ul li a:hover {
-  background-color: #ec3648; /* Achtergrondkleur verandert bij hover */
+  background-color: #ec3648;
 }
 
 /* Border effect */
@@ -1329,9 +1333,9 @@ ul li:nth-child(even) {
 
 #pt-page section:nth-of-type(6) {
   position: relative;
-  height: 900px; /* Stel een vaste hoogte in voor de sectie */
+  height: 900px; 
   display: flex;
-  justify-content: flex-start; /* Uitlijning voor de afbeelding en tekst */
+  justify-content: flex-start; 
   align-items: flex-start;
 }
 
@@ -1339,9 +1343,9 @@ ul li:nth-child(even) {
   position: absolute;
   top: 5%;
   left: 0;
-  width: 90%; /* De afbeelding beslaat ongeveer de helft van de breedte */
+  width: 90%; 
   height: 40%;
-  object-fit: cover; /* Zorg dat de afbeelding de ruimte vult zonder vervorming */
+  object-fit: cover; 
   z-index: 1;
 }
 
@@ -1350,10 +1354,10 @@ ul li:nth-child(even) {
   top: 20%;
   right: 0;
   bottom: 0;
-  width: 90%; /* Het tekstvak beslaat de helft van de breedte */
+  width: 90%; 
   height: 70%;
   padding: 2rem;
-  background-color: #f4f4f4; /* Witte achtergrond voor het tekstvak */
+  background-color: #f4f4f4; 
   z-index: 2;
 }
 
@@ -1362,13 +1366,21 @@ ul li:nth-child(even) {
   font-weight: bold;
   margin-bottom: 1rem;
   color: #333; /* Donkere tekstkleur */
+  font-family: "Integralbold";
+  padding-left: 1em;
+
 }
 
+#pt-page section:nth-of-type(6) ul {
+}
+#pt-page section:nth-of-type(6) li {
+}
 #pt-page section:nth-of-type(6) p {
   font-size: 1rem;
   color: #555;
   margin-bottom: 1rem;
   line-height: 1.6;
+  padding: 2em;
 }
 
 #pt-page section:nth-of-type(6) a {
@@ -1383,10 +1395,11 @@ ul li:nth-child(even) {
   font-size: 1rem;
   text-align: center;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Manifoldxbold";
 }
 
 #pt-page section:nth-of-type(6) a:hover {
-  background-color: #ec3648; /* Rode achtergrond bij hover */
+  background-color: #ec3648; 
   color: white;
 }
 
@@ -1394,20 +1407,20 @@ ul li:nth-child(even) {
 
 #pt-page section:nth-of-type(7) {
   position: relative;
-  height: 800px; /* Stel een vaste hoogte in voor de sectie */
+  height: 800px; 
   display: flex;
-  justify-content: flex-start; /* Uitlijning voor de afbeelding en tekst */
+  justify-content: flex-start; 
   align-items: flex-start;
-  margin-bottom: 3rem; /* Voeg ruimte toe tussen secties */
+  margin-bottom: 3rem; 
 }
 
 #pt-page section:nth-of-type(7) img {
   position: absolute;
   top: 20%;
   left: 10%;
-  width: 90%; /* De afbeelding beslaat ongeveer de helft van de breedte */
+  width: 90%; 
   height: 70%;
-  object-fit: cover; /* Zorg dat de afbeelding de ruimte vult zonder vervorming */
+  object-fit: cover;
   z-index: 1;
 }
 
@@ -1430,6 +1443,7 @@ ul li:nth-child(even) {
   margin-bottom: 1rem;
   color: #333; /* Donkere tekstkleur */
   z-index: 3;
+  font-family: "Integralbold";
 }
 
 #pt-page section:nth-of-type(7) p {
@@ -1451,6 +1465,7 @@ ul li:nth-child(even) {
   font-size: 1rem;
   text-align: center;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Manifoldxbold";
 }
 
 #pt-page section:nth-of-type(7) a:hover {
@@ -1459,5 +1474,131 @@ ul li:nth-child(even) {
 }
 
 /* 8STE STUKJE PT clubtrainers */
+#pt-page section:nth-of-type(10) {
+  overflow: hidden;
+  height: 100vh;
+}
+
+#pt-page section:nth-of-type(8) img {
+  width: 300px; /* Pas de breedte van de afbeeldingen aan zoals nodig */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Stel de eerste afbeelding en tekst links */
+#pt-page section:nth-of-type(8) img:nth-of-type(1) {
+  float: left;
+  margin-right: 20px;
+}
+
+#pt-page section:nth-of-type(8) p:nth-of-type(1) {
+  float: left;
+  margin-right: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  clear: left;
+}
+
+/* Stel de tweede afbeelding en tekst rechts */
+#pt-page section:nth-of-type(8) img:nth-of-type(2) {
+  float: right;
+  margin-left: 20px;
+}
+
+#pt-page section:nth-of-type(8) p:nth-of-type(2) {
+  float: right;
+  margin-left: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  clear: right;
+}
+
+/* Derde afbeelding en tekst links */
+#pt-page section:nth-of-type(8) img:nth-of-type(3) {
+  float: left;
+  margin-right: 20px;
+  clear: both; /* Zorg ervoor dat de volgende rij onder de eerste komt */
+}
+
+#pt-page section:nth-of-type(8) p:nth-of-type(3) {
+  float: left;
+  margin-right: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  clear: left;
+}
+
+/* Vierde afbeelding en tekst rechts */
+#pt-page section:nth-of-type(8) img:nth-of-type(4) {
+  float: right;
+  margin-left: 20px;
+}
+
+#pt-page section:nth-of-type(8) p:nth-of-type(4) {
+  float: right;
+  margin-left: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  clear: right;
+}
+
 
 /* 9DE STUKJE PT FAQ */
+#pt-page section:nth-of-type(9) h3 {
+  font-size: 28px;
+  font-weight: bold;
+  font-family: var(--font-2);
+  padding-bottom: 1em;
+}
+
+#pt-page section:nth-of-type(9) details {
+  margin-bottom: 20px;
+}
+
+#pt-page section:nth-of-type(9) summary {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-5);
+}
+
+#pt-page section:nth-of-type(9) summary::marker {
+  content: "\25BC";
+  font-size: 16px;
+  padding-right: 10px;
+
+}
+
+#pt-page section:nth-of-type(9) details[open] summary::marker {
+  content: "\25B2";
+}
+
+#pt-page section:nth-of-type(9) p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin-top: 10px;
+  font-family: var(--font-5);
+}
+
+#pt-page section:nth-of-type(9) a {
+  color: #333;
+  text-decoration: underline;
+}
+
+#pt-page section:nth-of-type(9) a:hover {
+  color: #555;
+}
+
+
+#pt-page section:nth-of-type(9) details + details {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
