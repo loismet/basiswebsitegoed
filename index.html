@@ -8,6 +8,10 @@
     <title>Trainmore homepage</title>
 
     <link href="styles/style.css" rel="stylesheet" />
+    <link href="styles/home.css" rel="stylesheet" />
+    <link href="styles/pt.css" rel="stylesheet" />
+    
+
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   </head>
 
@@ -25,7 +29,7 @@
 
       <body>
         <header>
-          <nav>
+          <nav role="navigation">
             <h1><a href="index.html">TRAINMORE</a></h1>
             <ul id="menu">
               <li><a href="#">Memberships</a></li>
@@ -39,15 +43,18 @@
               <span></span>
               <span></span>
             </button>
+            <button id="dark-mode-toggle">Dark Mode</button>
           </nav>
+  
         </header>
 
         <main id="homepage">
+          
           <!-- sectie 1 -->
           <section>
             <h2>Become unstoppable</h2>
             <h3>Get 25% off all memberships</h3>
-            <img src="images/homepage.jpg" alt="" />
+            <img src="images/homepage.jpg" alt="foto homepage, man en vrouw" />
             <p>+ €1 discount per workout!</p>
             <ul>
               <li><a href="#">JOIN NOW</a></li>
@@ -56,9 +63,12 @@
             </ul>
           </section>
 
+         
+         
           <!-- banner 1-->
+
           <section>
-            <p>GET 1€ OFF FOR EVERY WORKOUT</p>
+            <h4>GET 1€ OFF FOR EVERY WORKOUT</h4>
             <a href="#">get 1€ off </a>
 
             <div>
@@ -216,7 +226,13 @@
             </div>
           </section>
 
+
           <!-- Locaties lijst sectie 2 -->
+
+          <!--Details/ Summary:
+           https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
+           Uitleg sanne tijdens feedback moment 1 -->
+
           <section>
             <h3>More locations more buzz</h3>
             <details>
@@ -259,7 +275,7 @@
 
           <!-- banner 2 -->
           <section>
-            <p>LABELS LABELS LABELS</p>
+            <h4>LABELS LABELS LABELS</h4>
 
             <a href="#">DISCOUVER OUR LABELS</a>
 
@@ -418,50 +434,53 @@
             </div>
           </section>
 
-          <img src="images/meerderefotos.jpg" alt="" />
+          <img src="images/meerderefotos.jpg" alt="overzicht foto, wat kun je krijgen bij trainmore. Dit is niet klikbaar" />
           <!-- Community gallery sectie 3 -->
           <section>
             <h3>Spotted: our Trainmore community</h3>
             <h4>Tag @trainmore to be featured</h4>
-            <ul>
-              <li><img src="images/com1.webp" alt="Community 1" /></li>
-              <li><img src="images/com2.webp" alt="Community 2" /></li>
-              <li><img src="images/com3.webp" alt="Community 3" /></li>
-              <li><img src="images/com1.webp" alt="Community 1" /></li>
-              <li><img src="images/com2.webp" alt="Community 2" /></li>
-              <li><img src="images/com3.webp" alt="Community 3" /></li>
-              <li><img src="images/com1.webp" alt="Community 1" /></li>
-              <li><img src="images/com2.webp" alt="Community 2" /></li>
+            <ul class="photoGallery">
+              <li><img src="images/com1.webp" alt="Community foto 1, foto van vrouw im sportkleding " /></li>
+              <li><img src="images/com2.webp" alt="Community foto 2, foto van man in sportkleding" /></li>
+              <li><img src="images/com3.webp" alt="Community foto 3, foto van vrouw in sportkleding" /></li>
+             <li><img src="images/social4.png" alt="Community foto 4, foto van vrouw in sportkleding"></li>
+             <li><img src="images/fotosocial5.png" alt="Community foto 5, foto van vrouw in sportkleding"></li>
+             <li><img src="images/social6.png" alt="Community foto 6, foto van 2 mannen in sportkleding"></li>
+             <li><img src="images/social7.png" alt="Community foto 7, foto van sportende vrouw"></li>
+             <li><img src="images/social8.png" alt="Community foto 8, foto van 2 vrouwen in sportkeding"></li>
+             <li><img src="images/social9.png" alt="Community foto 9, foto van vrouw in sportkeding "></li>
+             <li><img src="images/social10.png" alt="Community foto 10, foto van vrouw in sportkleding"></li>
+             <li><img src="images/social11.png" alt="Community foto 11, foto van vrouw in sportkleding"></li>
+             <li><img src="images/social12.png" alt="Community foto 12, foto van sportende man"></li>
             </ul>
-
-            <div>
-              <a href="#">Show more</a>
-            </div>
+          
+            <button type="button" class="showMoreButton">Show more</button>
+        
           </section>
 
           <!-- sectie 4 -->
           <section>
-            <h3>More possibilities. More potential</h3>
+            <h3>More possibilities. More potential.</h3>
             <ul>
-              <li>
-                <a href="#">EXPLORE PERSONAL TRAINING</a
-                ><img src="images/exguid.jpg" alt="" />
-              </li>
-              <li>
-                <a href="#">DISCOUVER OUR APP</a
-                ><img src="images/ourapp.jpg" alt="" />
-              </li>
-              <li>
-                <a href="#">BOOK OUR CLASSES</a
-                ><img src="images/studioclas.jpg" alt="" />
-              </li>
-            </ul>
-          </section>
+                <li data-index="0">
+                    <a href="#">EXPLORE PERSONAL TRAINING</a>
+                    <img src="images/exguid.jpg" alt="Personal Training, foto man die vrouw personal training geeft" />
+                </li>
+                <li data-index="1">
+                    <a href="#">DISCOVER OUR APP</a>
+                    <img src="images/ourapp.jpg" alt="Our app, foto van vrouw die man de app laat zien" />
+                </li>
 
+                <li data-index="2">
+                    <a href="#">BOOK OUR studio CLASSES</a>
+                    <img src="images/studioclas.jpg" alt="studio classes, foto van vrouw die studioclasses geeft " />
+                </li>
+            </ul>
+        </section>
           <!-- sectie 5 -->
           <section>
             <h3>We are more than a gym</h3>
-            <img src="images/schijvenhome.jpg" alt="" />
+            <img src="images/schijvenhome.jpg" alt="foto van vallende gekleurde gewichtsschijven uit de lucht" />
             <ul>
               <li><a href="#">ART</a></li>
               <li><a href="#">MUSIC</a></li>
@@ -473,17 +492,17 @@
           <section>
             <h3>More possibilities. More potential</h3>
             <ul>
-              <li>
+              <li data-index="0">
                 <a href="#">MEMBERSHIP TAKE-OVER</a
                 ><img src="images/.jpg" alt="" />
               </li>
-              <li>
+              <li data-index="1">
                 <a href="#">BRING A FRIEND</a
-                ><img src="images/braf.jpg" alt="" />
+                ><img src="images/braf.jpg" alt="bring a friend, foto van man en vrouw in scportkleding" />
               </li>
-              <li>
+              <li data-index="2">
                 <a href="#">LATEST NEWS</a
-                ><img src="images/exguid.jpg" alt="" />
+                ><img src="images/exguid.jpg" alt=" latest news, foto van man die vrouw personal training geeft" />
               </li>
             </ul>
           </section>
@@ -493,25 +512,80 @@
             <h3>Our latest blog posts</h3>
             <ul>
               <li>
-                <img src="images/blog1.jpg" alt="" />
+                <img src="images/blog1.jpg" alt="blog foto 1, foto van man met hoodie en zonnebril" />
                 <p>Icons of Trainmore: Merlijn Kamerling</p>
                 <p>31 Mei 2024 | Blogs, News</p>
               </li>
               <li>
-                <img src="images/blog2.jpg" alt="" />
+                <img src="images/blog2.jpg" alt="blog foto 2,foto van man met nette kleding in roze licht " />
                 <p>Icons of Trainmore: Timi Letonja</p>
                 <p>25 Maart 2024 | Blogs, News</p>
               </li>
             </ul>
           </section>
+
+        
         </main>
 
         <footer>
-          <!-- Footer inhoud kan hier komen -->
+          <h2>trainmore</h2>
+<section>
+          <details>
+            <summary> contact</summary>
+          <ul>
+              <li>Trainmore labels</li>
+              <li>Amsterdam</li>
+              <li>Bussum</li>
+              <li>Den haag</li>
+              <li>Eindhoven</li>
+              <li>Groningen</li>
+              <li>Haarlem</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>Go to</summary>
+        <ul>
+            <li>Student membership</li>
+            <li>Personal training</li>
+            <li>Opzeggen</li>
+            <li>medewerkers login</li>
+            <li>news en more</li>
+            <li>Trainmore bussines</li>
+            <li>discount</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Contact</summary>
+      <ul>
+          <li>Student membership</li>
+          <li>Personal training</li>
+          <li>Opzeggen</li>
+          <li>medewerkers login</li>
+          <li>news en more</li>
+          <li>Trainmore bussines</li>
+          <li>discount</li>
+      </ul>
+    </details>
+</section>
+          <nav>
+              <a href="#"></a>
+              <a href="#"></a>
+              <a href="#"></a>
+              <a href="#"></a>
+              <a href="#"></a>
+          </nav>
+          <nav>
+              <a href="#">cookiesbeleid</a> 
+              <a href="#">algemene voorwaarden</a> 
+              <a href="#">privacy policy</a> 
+              <a href="#">club regels /a>
+          </nav>
         </footer>
 
         <script defer src="scripts/script.js"></script>
+        <script defer src="scripts/home.js"></script>
+        <script defer src="scripts/pt.js"></script>
       </body>
-    </html>
-  </body>
 </html>

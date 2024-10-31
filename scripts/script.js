@@ -2,7 +2,9 @@
 console.log("hi");
 
 // HEADER/NAV
-// Zorg ervoor dat het script geladen is zodra de DOM is klaar
+// menu toggle https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/toggle
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+
 document.addEventListener("DOMContentLoaded", () => {
   const toggleButton = document.getElementById("menu-toggle");
   const menu = document.getElementById("menu");
@@ -24,4 +26,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//   More personal
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButton = document.getElementById("menu-toggle");
+  const darkModeToggle = document.getElementById("dark-mode-toggle"); // Dark mode knop
+  const body = document.body;
+
+  // Controleer of dark mode al eerder is ingesteld
+  if (localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark-mode");
+  }
+
+  // Toggle dark mode wanneer de knop wordt ingedrukt
+  darkModeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+
+    // Sla de voorkeur van de gebruiker op in localStorage
+    if (body.classList.contains("dark-mode")) {
+      localStorage.setItem("darkMode", "enabled");
+    } else {
+      localStorage.setItem("darkMode", "disabled");
+    }
+  });
+});

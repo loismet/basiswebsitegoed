@@ -5,27 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trainmore</title>
     <link href="styles/style.css" rel="stylesheet" />
+    <link href="styles/pt.css" rel="stylesheet" />
+    <link href="styles/home.css" rel="stylesheet" />
   </head>
 
   <body>
+   
+      </nav>
     <header>
-      <nav>
-        <h1 id="logo"><a href="index.html">TRAINMORE</a></h1>
+      <button id="dark-mode-toggle">Dark Mode</button>
+      <nav role="navigation">
+        <h1><a href="index.html">TRAINMORE</a></h1>
         <ul id="menu">
-          <li><a href="#">Memberships </a></li>
-          <li><a href="#">CLubs</a></li>
-          <li><a href="">Personal training</a></li>
+          <li><a href="#">Memberships</a></li>
+          <li><a href="#">Clubs</a></li>
+          <li><a href="pt.html">Personal training</a></li>
           <li><a href="#">Free trial</a></li>
-          <li><a href="">Join now</a></li>
+          <li><a href="#">Join now</a></li>
         </ul>
-
         <button id="menu-toggle" aria-label="toggle menu">
           <span></span>
           <span></span>
           <span></span>
         </button>
-      </nav>
+        
     </header>
+
     <main id="pt-page">
       <!-- sectie 1  -->
       <section>
@@ -83,14 +88,14 @@
       <section>
         <h3>MORE PERSONAL</h3>
         <ul>
-          <li>
+          <li data-index="0">
             <a href="">EXPERT GUIDANCE</a><img src="images/exguid.jpg" alt="" />
           </li>
-          <li>
+          <li data-index="1">
             <a href="">TAILORED APPROACH</a
             ><img src="images/tailored.jpg" alt="" />
           </li>
-          <li>
+          <li data-index="2">
             <a href="">MORE RESULTS</a><img src="images/moreres.jpg" alt="" />
           </li>
         </ul>
@@ -129,17 +134,15 @@
       <section>
         <h3>Most bought memberships</h3>
         <div>
-          <p>12 personal Training sessions</p>
-          <p>for €69 per session</p>
-          <p>voor</p>
-          <p>828,-</p>
+          <p>12 personal Training sessions for €69 per session voor 828,-</p>
+          
           <a href="#">Start now</a>
         </div>
         <img src="images/stukje5.jpg" alt="Personal Training" />
       </section>
 
       <!-- sectie 8 -->
-       <section>
+    <section>
       <h3>CLub trainers</h3>
       <img src="images/train1.jpg" alt="Person 1">
       <p>Collin Arts</p>
@@ -201,9 +204,32 @@
           </p>
         </details>
       </section>
+      <button id="dark-mode-toggle">Dark Mode</button>
     </main>
-    <footer></footer>
+    <footer>
+      <h2>trainmore</h2>
+          <ul>
+              <li>clubs</li>
+              <li>go to</li>
+              <li>contact</li>
+          </ul>
+          <nav>
+              <a href="#"></a>
+              <a href="#"></a>
+              <a href="#"></a>
+              <a href="#"></a>
+              <a href="#"></a>
+          </nav>
+          <nav>
+              <a href="#">cookiesbeleid</a> 
+              <a href="#">algemene voorwaarden</a> 
+              <a href="#">privacy policy</a> 
+              <a href="#">club regels /a>
+          </nav>
+    </footer>
 
     <script defer src="scripts/script.js"></script>
+    <script defer src="scripts/pt.js"></script>
+    <script defer src="scripts/home.js"></script>
   </body>
 </html>

@@ -70,12 +70,36 @@ p {
   /* startje */
   --color-text: #111;
   --text-color: white;
+  --bg-body: white;
+  --summary-color: black;
+  --kopjes-color: white;
+
   --main-bg-color: white;
   --color-background-background: #f4f4f4;
-  --header-height: 80px;
   --background-background-color: black;
+  --color-h3: black;
+
+  --header-height: 80px;
+
+  --toggle-color: white;
+
+  /* FONT SIZES  */
   --font-size-h3: 1.1em;
   --font-size-h3-2: 1.5em;
+  --font-size-p: 1em;
+  --font-size-button-pt: 0.7em;
+  --font-size-button-bg: 0.8em;
+
+  /* LETTER SPACING */
+  --letter-spacing-button: 0.2em;
+  --letter-spacing-1: 0.1em;
+
+  /* BUTTON COLOR */
+  --color-button-r: #ec3648;
+  --color-button-w: white;
+  --color-button-hover: #111;
+
+  /* FONTS FAMILY*/
   --font-1: "IntegralCF";
   --font-2: "Integralbold";
   --font-3: "Integralxbold";
@@ -83,10 +107,28 @@ p {
   --font-5: "Manifoldreg";
   --font-6: "Manifoldxbold";
   --font-7: "Manifolddemi";
+
   --buton-p1-color: #ec3648;
   --font-button: rgb(255, 255, 255);
   --hover-button: black;
   --boder-color: black;
+  --lineheight1: 1.6em;
+}
+
+/* https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/ */
+/*  */
+body.dark-mode {
+  --color-text: #d8d8d8;
+  --main-bg-color: #404040;
+  --background-background-color: #333;
+  --color-background-background: #333;
+  --header-bg-color: #1a1a1a;
+  --color-button: #ec3648;
+  --color-button-hover: #f4f4f4;
+  --text-color: #b1b1b1;
+  --color-text: #b1b1b1;
+  --bg-body: black;
+  --summary-color: rgb(222, 222, 222);
 }
 
 /****************/
@@ -98,7 +140,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  width: 100%;
+  overflow: auto;
 }
 
 * {
@@ -109,7 +152,7 @@ body {
 
 h1 {
   font-style: bold;
-  font-family: "Manifoldxbold";
+  font-family: var(--font-6);
 }
 
 h1 a {
@@ -118,21 +161,53 @@ h1 a {
 }
 
 body {
-  overflow-x: hidden;
   transition: overflow 0.3s ease;
+  overflow-x: hidden;
+  background-color: var(--bg-body);
 }
 
 main {
-  padding-top: 80px; /* Zorg voor ruimte boven de hero-sectie */
+  padding-top: 5em; /* Zorg voor ruimte boven de hero-sectie */
+  background-color: var(--background-main);
 }
 
 img {
-  width: 100%; 
-  height: auto; 
-  object-fit: cover; 
-  max-width: 100vw; 
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-width: 100vw;
 }
 
+#dark-mode-toggle {
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  z-index: 10000;
+
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 2px;
+
+  width: 100px;
+  height: 40px;
+
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  font-family: var(--font-2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+  background-color: #333; =
+  color: #fff; =
+}
 /***********/
 /* HEADER */
 /**********/
@@ -141,8 +216,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffffff;
-  padding: 1rem 2rem;
+  background-color: var(--main-bg-color);
+  padding: 1em 2em;
   position: fixed;
   z-index: 10;
   width: 100%;
@@ -152,15 +227,18 @@ header {
 }
 
 header h1 {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   color: var(--color-text);
+  display: flex;
+  justify-content: right;
+  margin-left: 0.5em;
 }
 
 header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 95%;
 }
 
 header nav ul {
@@ -171,15 +249,34 @@ header nav ul {
   align-items: center;
 }
 
+header nav ul li {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 1em;
+  padding: 2em 1em;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: color 0.3s ease;
+  font-family: var(--font-5);
+  letter-spacing: var(--letter-spacing-1);
+}
 /* Navigatie links */
 header nav ul li a {
   color: var(--color-text);
   text-decoration: none;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
+  font-size: 1em;
+  padding: 2em 1em;
   display: block;
   justify-content: center;
   transition: color 0.3s ease;
+  font-family: var(--font-5);
+  letter-spacing: var(--letter-spacing-1);
+}
+
+header nav #dark-mode-toggle {
+  display: hidden;
 }
 
 /* HAMBURGER MENU */
@@ -187,9 +284,9 @@ button {
   background: none;
   border: none;
   cursor: pointer;
-  width: 22px;
-  height: 14px;
-  display: none; 
+  width: 1.4em;
+  height: 0.9em;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -204,9 +301,8 @@ button span {
 
 /* MEDIA QUERIES: Zorg dat het hamburgermenu zichtbaar is op kleinere schermen */
 @media (max-width: 1020px) {
-  /* Toon de hamburgerknop op kleinere schermen */
   button {
-    display: flex; 
+    display: flex;
   }
 
   header nav ul {
@@ -216,37 +312,37 @@ button span {
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    background-color: var(--background-background-color);
+    background-color: black;
     display: none;
     z-index: 9;
   }
 
   header nav ul li {
-    text-align: start;
-    padding: 1.5rem 0;
+    text-align: ;
+    padding: 0;
     width: 100%;
   }
 
   header nav ul li a {
-    font-size: 1rem;
+    font-size: 1em;
     color: white;
     width: 100%;
-    padding-left: 2.5rem;
+    padding-left: 2.5em;
     font-family: "IntegralCF-Regular";
     letter-spacing: 0.2em;
   }
 
   /* Wanneer het hamburgermenu wordt geopend */
   header nav ul.show {
-    display: flex; /* Toon het menu wanneer de hamburgerknop wordt ingedrukt */
+    display: flex;
   }
 
   /* Animatie voor het veranderen van de hamburgerknop naar een kruisje */
   button.open span:nth-child(1) {
     transform: rotate(45deg);
     position: relative;
-    top: 6px;
-    background-color: white; /* Kleur van de lijnen bij geopend menu */
+    top: 0.4em;
+    background-color: white; 
   }
 
   button.open span:nth-child(2) {
@@ -256,7 +352,7 @@ button span {
   button.open span:nth-child(3) {
     transform: rotate(-45deg);
     position: relative;
-    top: -5px;
+    top: -0.3em;
     background-color: white; /* Kleur van de lijnen bij geopend menu */
   }
 
@@ -273,1332 +369,128 @@ button span {
     color: white;
   }
 }
-/* 1STE SECTIE HOME */
-#homepage section:nth-of-type(1) {
-  display: grid;
-  grid-template-rows: repeat(6, minmax(0, auto));
-  width: 100%;
-  height: 60vh; 
-  position: relative;
-  justify-items: center;
-  text-align: center;
-  background-image: url("images/homepage.jpg"); 
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-}
 
-#homepage section:nth-of-type(1) img {
-  width: 100%;
-  height: 95%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  object-fit: cover;
-}
-
-#homepage section:nth-of-type(1) h2,
-#homepage section:nth-of-type(1) h3,
-#homepage section:nth-of-type(1) p,
-#homepage section:nth-of-type(1) ul {
-  z-index: 2;
-  color: white;
-  font-family: "Integralbold", sans-serif;
-}
-
-#homepage section:nth-of-type(1) h2 {
-  grid-row: 2;
-  font-size: 2.5rem;
-  align-self: end;
-}
-
-#homepage section:nth-of-type(1) h3 {
-  grid-row: 3;
-  font-size: var(--font-size-h3);
-  padding-top: 1em;
-  height: 0.4em;
-}
-
-#homepage section:nth-of-type(1) p {
-  grid-row: 4;
-  padding: 0;
-  margin: 0;
-  font-size: 0.8em;
-}
-
-#homepage section:nth-of-type(1) ul {
-  grid-row: 5;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-#homepage section:nth-of-type(1) ul li {
-  padding: 0.6em 4em;
-  background-color: #ec3648;
-  font-size: 0.9em;
-}
-
-#homepage section:nth-of-type(1) ul li a {
-  color: white;
-  font-family: "Manifoldreg";
-  text-align: center;
-  padding: 0.6rem;
-  letter-spacing: 0.15em;
-}
-
-#homepage section:nth-of-type(1) ul li a:hover {
-  background-color: black;
-}
-
-/* BANNERS  */
-/* BANNER 1 */
-#homepage section:nth-of-type(2) {
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  flex-direction: column;
-  width: 100%;
-  height: 100px;
-  position: relative; 
-  overflow: hidden; 
-}
-
-/* Scrollende tekst op de achtergrond */
-#homepage section:nth-of-type(2) p {
-  position: absolute; 
-  z-index: 1;  
-  font-size: 4rem;
-  font-family: "Integralxbold";
-  animation: scroll-text 10s linear infinite;
-  white-space: nowrap; 
-  top: 10%; 
-}
-
-/* Duplicatie van de tekst */
-#homepage section:nth-of-type(2) p::after {
-  content: attr(data-text); 
-  position: absolute;
-  white-space: nowrap;
-  top: 0;
-  left: 100%; 
-}
-
-@keyframes scroll-text {
-  0% {
-    transform: translateX(
-      100vw
-    ); 
+@media (min-width: 1200px) {
+  header h1 {
+    font-size: 2em;
+    margin-left: 2em;
   }
-  100% {
-    transform: translateX(
-      -100%
-    ); 
+
+  header nav ul {
+    display: flex;
+    justify-content: center;
+    margin-right: 8em;
+    gap: 3em;
+  }
+  header {
+    height: 7em;
+  }
+  nav {
+    height: 5em;
+  }
+
+  header.menu-open nav ul li a {
+    margin-left: 2em;
   }
 }
 
-#homepage section:nth-of-type(2) div {
-  display: flex;
-  justify-content: space-evenly; 
-  align-items: flex-end;
-  left: 70%;
-  bottom: 35%;
-  width: 20%;
-  height: 10px; 
-  position: relative;
-  margin-top: 20px; 
-}
-
-#homepage section:nth-of-type(2) div svg {
-  width: 1em;
-  padding: 0;
-  height: 4em;
-}
-
-/* Knop styling */
-#homepage section:nth-of-type(2) a {
-  position: relative; 
-  z-index: 2; 
-  padding: 0.5rem 1rem;
-  width: 10em;
-  margin: auto;
-  background-color: #ec3648;
-  color: white;
-  font-family: "Manifoldreg", sans-serif;
-  font-size: 1rem;
-  border-radius: 5px;
-  text-align: center;
-  text-decoration: none; 
-  margin-top: 1rem;
-  font-weight: bold; 
-}
-
-#homepage section:nth-of-type(2) a:hover {
-  background-color: #c0392b; 
-}
-
-/* BANNER 2 */
-#homepage section:nth-of-type(4) {
-  display: flex;
-  justify-content: left;
-  flex-direction: column;
-  width: 100%;
-  height: 150px;
-  position: relative;
-  overflow: hidden; 
-}
-
-/* Scrollende tekst op de achtergrond */
-#homepage section:nth-of-type(4) p {
-  position: absolute; 
-  z-index: 1; 
-  font-size: 4em;
-  font-family: "Integralxbold";
-  animation: scroll-text 10s linear infinite;
-  white-space: nowrap; /* Zorgt ervoor dat de tekst niet wordt afgebroken */
-  top: 10%; 
-}
-
-/* Knop styling */
-#homepage section:nth-of-type(4) a {
-  position: relative; /* Zorgt ervoor dat de knop bovenop de tekst wordt geplaatst */
-  z-index: 2; /* Zorgt ervoor dat de knop boven de scrollende tekst komt */
-  padding: 0.8em 1.5em;
-  background-color: #ec3648;
-  width: 60%;
-  color: white;
-  font-family: "Manifoldreg", sans-serif;
-  font-size: 0.9em;
-  display: flex;
-  justify-content: center;
-  text-decoration: none; 
-  letter-spacing: 0.1em;
-  margin-top: 1em;
-  font-weight: bold; 
-  align-self: flex-start;
-  left: 12%;
-  top: 40%;
-}
-
-#homepage section:nth-of-type(4) div {
-  display: flex;
-  justify-content: space-evenly; 
-  align-items: flex-end;
-  left: 70%;
-  bottom: 5%;
-  width: 20%;
-  height: 10px; 
-  position: relative;
-  margin-top: 20px; 
-}
-
-#homepage section:nth-of-type(4) div svg {
-  width: 1em;
-  padding: 0;
-  height: 4em;
-}
-
-#homepage section:nth-of-type(4) a:hover {
-  background-color: black; 
-}
-/* 2DE SECTIE HOME LOCATIELIJST*/
-#homepage section:nth-of-type(3) {
-  padding: 2rem;
-  background-color: #f4f4f4; 
-  text-align: left;
-  margin-left: 2em;
-}
-
-/* Stijling voor de koptekst */
-#homepage section:nth-of-type(3) h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  line-height: 1.2;
-  font-family: "Integralxbold";
-  letter-spacing: 0.1em;
-}
-
-/* Algemene stijling voor details */
-#homepage section:nth-of-type(3) details {
-  margin-bottom: 1.5rem;
-}
-
-/* Stijling voor de samenvatting (stadnamen) */
-#homepage section:nth-of-type(3) summary {
-  font-size: 1.6rem;
-  font-weight: bold;
-  cursor: cell;
-  position: relative;
-  padding: 0.5rem 0;
-  list-style: none;
-  color: #111;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: "Integralxbold";
-  color: #000;
-}
-
-/* Stijling voor de pijltjes naar beneden en omhoog */
-#homepage section:nth-of-type(3) summary::after {
-  border: solid black; 
-  border-width: 0 2px 2px 0; 
-  display: inline-block;
-  padding: 5px; 
-  transform: rotate(45deg); 
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg); 
-}
-
-/* Pijltje naar boven wanneer details geopend zijn */
-#homepage section:nth-of-type(3) details[open] summary::after {
-  transform: translateY(-50%) rotate(-135deg); 
-}
-
-/* Stijling voor de dropdown inhoud (locaties) */
-#homepage section:nth-of-type(3) ul {
-  padding-left: 1rem;
-  margin-top: 1rem;
-}
-
-#homepage section:nth-of-type(3) ul li {
-  font-size: 1.1rem;
-  color: #555;
-  padding: 0.5rem 0;
-  list-style-type: none;
-  font-family: "Integralxbold";
-  color: #000;
-  letter-spacing: 0.1em;
-}
-
-/* 3DE SECTIE HOME SOCIAL WALL */
-
-#homepage section:nth-of-type(5) {
-  text-align: center;
-  padding: 2rem;
-  background-color: #f4f4f4;
-  margin: 0 auto;
-  height: 100%;
-  margin-top: 2em;
-}
-
-#homepage section:nth-of-type(5) h3 {
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  font-family: "Integralbold";
-}
-
-#homepage section:nth-of-type(5) p {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  letter-spacing: 0.1em;
-  font-family: "Integralbold";
-}
-
-/* Styling voor de sectie */
-#homepage section:nth-of-type(5) {
-  text-align: center;
-  padding: 2rem;
-  background-color: #f4f4f4; 
-}
-
-/* H3 en H4 styling voor de titels */
-
-/* Styling voor de sectie */
-#homepage section:nth-of-type(5) {
-  text-align: center;
-  padding: 2rem;
-  background-color: #f4f4f4; /
-}
-
-/* H3 en H4 styling voor de titels, links uitlijnen */
-#homepage section:nth-of-type(5) h3,
-#homepage section:nth-of-type(5) h4 {
-  text-align: left; 
-  margin-left: 2rem; 
-}
-
-#homepage section:nth-of-type(5) h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  display: flex;
-  left: 10%;
-}
-
-#homepage section:nth-of-type(5) h4 {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  letter-spacing: 0.1em;
-}
-
-/* Styling voor de ul en li */
-#homepage section:nth-of-type(5) ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(
-    2,
-    1fr
-  ); /* Zet twee afbeeldingen naast elkaar */
-  gap: 1rem;
-  justify-items: center;
-  width: 100%;
-}
-
-/* Styling voor de afbeeldingen om vierkant te maken */
-#homepage section:nth-of-type(5) li img {
-  width: 100%;
-  max-width: 300px; 
-  aspect-ratio: 1/1;
-  object-fit: cover; 
-  display: block;
-}
-
-/* Styling voor de knop */
-#homepage section:nth-of-type(5) div {
-  display: flex;
-  justify-content: center;
-  margin-top: 2em;
-  width: 100%;
-}
-
-#homepage section:nth-of-type(5) div a {
-  display: flex;
-  justify-content: center;
+footer {
   background-color: #000;
   color: #fff;
-  padding: 1em;
-  font-family: var(--font-5);
-}
-
-/* 4DE SECTIE HOME MORE MORE */
-
-#homepage section:nth-of-type(6) {
   text-align: center;
-  padding: 2rem;
-  background-color: #f4f4f4; 
-}
-
-#homepage section:nth-of-type(6) h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: start;
-  margin-bottom: 2rem;
-  padding-left: 1em;
-  color: #333;
-}
-
-/* Scrollbare container */
-#homepage section:nth-of-type(6) ul {
-  display: flex;
-  overflow-x: scroll; 
-  list-style: none;
-  gap: 0.1rem; 
-  scroll-behavior: smooth; 
-  padding: 0;
-  margin: 0;
-}
-
-#homepage section:nth-of-type(6) ul::-webkit-scrollbar {
-  height: 8px; /* Hoogte van de scrollbar */
-}
-
-#homepage section:nth-of-type(6) ul::-webkit-scrollbar-thumb {
-  background-color: #888; 
-}
-
-/* Stijling van de afbeelding en de lijstitems */
-#homepage section:nth-of-type(6) ul li {
-  position: relative;
-  min-width: 300px; 
-  flex-shrink: 0; 
-}
-
-#homepage section:nth-of-type(6) ul li img {
-  width: 80%;
-  height: 90%;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  padding: 0;
-  margin: 0;
-}
-
-#homepage section:nth-of-type(6) ul li:hover img {
-  transform: scale(1.05); =
-}
-
-/* Tekst overlay stijling */
-#homepage section:nth-of-type(6) ul li a {
-  display: block;
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7); 
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-#homepage section:nth-of-type(6) ul li a:hover {
-  background-color: #ec3648;
-}
-
-/* 5DE SECTIE HOME MORE THAN */
-#homepage section:nth-of-type(7) {
-  display: grid;
-  grid-template-rows: repeat(6, minmax(0, auto));
-  width: 100%;
-  height: 60vh;
-  position: relative;
-  justify-items: center;
-  text-align: center;
-  background-image: url("images/homepage.jpg");
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-}
-
-#homepage section:nth-of-type(7) img {
-  width: 100%;
-  height: 95%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  object-fit: cover;
-}
-
-#homepage section:nth-of-type(7) h3,
-#homepage section:nth-of-type(7) ul {
-  z-index: 2;
-  color: white;
-  font-family: "Integralbold", sans-serif;
-}
-
-#homepage section:nth-of-type(7) h3 {
-  grid-row: 4;
-  font-size: 2rem;
-  width: 70%;
-}
-
-#homepage section:nth-of-type(7) ul {
-  grid-row: 5;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  align-items: center;
-}
-
-#homepage section:nth-of-type(7) ul li {
-  padding: 0.3em 4em;
-  width: 70%;
-  background-color: #ec3648;
-}
-
-#homepage section:nth-of-type(7) ul li a {
-  color: white;
-  background-color: #ec3648;
-  font-family: "Manifoldreg";
-  text-align: center;
-  padding: 0.6rem;
-  letter-spacing: 0.15em;
-  font-size: 0.9em;
-  display: flex;
-  justify-content: center;
-}
-
-#homepage section:nth-of-type(7) ul li a:hover {
-  background-color: #c0392b;
-}
-
-/* 6DE SECTIE HOME THERE FOR YOU */
-homepage section:nth-of-type(8) {
-  text-align: center;
-  padding: 2rem;
-  background-color: #f4f4f4;
-}
-
-#homepage section:nth-of-type(8) h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: start;
-  margin-bottom: 2rem;
-  padding-left: 1em;
-  color: #333;
-}
-
-/* Scrollbare container */
-#homepage section:nth-of-type(8) ul {
-  display: flex;
-  overflow-x: scroll;
-  list-style: none;
-  gap: 0.1rem;
-  scroll-behavior: smooth; 
-  padding: 0;
-  margin: 0;
-}
-
-#homepage section:nth-of-type(8) ul::-webkit-scrollbar {
-  height: 8px; 
-}
-
-#homepage section:nth-of-type(8) ul::-webkit-scrollbar-thumb {
-  background-color: #888; 
-  border-radius: 10px;
-}
-
-/* Stijling van de afbeelding en de lijstitems */
-#homepage section:nth-of-type(8) ul li {
-  position: relative;
-  min-width: 300px; /
-  flex-shrink: 0; 
-}
-
-#homepage section:nth-of-type(8) ul li img {
-  width: 80%;
-  height: 90%;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  padding: 0;
-  margin: 0;
-}
-
-#homepage section:nth-of-type(8) ul li:hover img {
-  transform: scale(1.05);
-}
-
-/* Tekst overlay stijling */
-#homepage section:nth-of-type(8) ul li a {
-  display: block;
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7); 
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-/* 7DE SECTIE HOME LATEST */
-
-#homepage section:nth-of-type(9) {
-  padding: 40px;
-  background-color: #fff;
+  padding: 2em;
   font-family: Arial, sans-serif;
 }
 
-/* Titel van de sectie */
-#homepage section:nth-of-type(9) h3 {
-  font-size: 36px;
+footer h2 {
+  font-size: 1.5em;
+  margin-bottom: 5em;
+  text-transform: uppercase;
+  margin-bottom: 1em;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 30px;
+  text-align: left; /* Links uitlijnen */
 }
 
-/* Ul-lijst stijl */
-#homepage section:nth-of-type(9) ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-/* Algemene styling voor elk item (li) */
-#homepage section:nth-of-type(9) ul li a {
+/* Stijling voor de sectie met de details */
+footer section {
+  margin-top: 4em;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 40px;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 20px;
+  flex-direction: column;
+  align-items: left;
+  gap: 1em;
+  margin-bottom: 2em;
+  text-align: left; /* Links uitlijnen van tekst */
 }
 
-/* Afbeelding styling */
-ul li:nth-child(9) ul li img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
+footer section details {
+  width: 100%;
+  max-width: 900px;
 }
 
-/* Algemene tekststyling */
-ul li:nth-child(9) ul lip {
-  margin: 0;
-  color: #333;
-}
-
-/* Titel van de blogpost */
-ul li:nth-child(9) p:nth-of-type(1) {
-  font-size: 20px;
+footer section details summary {
+  font-size: 1em;
+  text-transform: uppercase;
   font-weight: bold;
+  cursor: pointer;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #545454;
+  text-align: left; /* Links uitlijnen */
 }
 
-/* Meta-informatie zoals datum */
-ul li:nth-child(9) p:nth-of-type(2) {
-  font-size: 14px;
+footer section details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+footer section details[open] ul {
+  display: block;
+  margin-top: 0.5em;
+}
+
+footer section details ul li {
+  font-size: 0.9em;
+  color: #ccc;
+  padding: 0.3em 0;
+  text-align: left; /* Links uitlijnen */
+}
+
+/* Stijling voor de social media links (eerste nav) */
+footer nav:nth-of-type(1) {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1.5em;
+}
+
+footer nav:nth-of-type(1) a {
+  color: #fff;
+  font-size: 1.2em;
+  transition: color 0.3s;
+}
+
+footer nav:nth-of-type(1) a:hover {
+  color: #ccc;
+}
+
+/* Stijling voor de beleidslinks (tweede nav) */
+footer nav:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-top: 2em;
   color: #666;
 }
 
-/* Oneven items (afbeelding links, tekst rechts) */
-ul li:nth-child(odd) {
-  flex-direction: row;
-}
-
-/* Even items (afbeelding rechts, tekst links) */
-ul li:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-/**************/
-/* PT-pagina */
-/**************/
-
-/******************************/
-/* PT-PAGINA: SECTIES STYLING */
-/******************************/
-
-/* EERSTE SECTIE PT */
-#pt-page section:nth-of-type(1) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  height: 55vh;
-  text-align: center;
-}
-
-#pt-page section:nth-of-type(1) img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-#pt-page section:nth-of-type(1) ul {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  top: 20%;
-  z-index: 2;
-}
-
-#pt-page section:nth-of-type(1) ul li {
-  padding: 1rem 2rem;
-  background-color: #ec3648;
-  margin-bottom: 0.5rem;
-}
-
-#pt-page section:nth-of-type(1) ul li a {
-  color: white;
+footer nav:nth-of-type(2) a {
+  font-size: 0.8em;
+  color: #666;
   text-decoration: none;
-  font-size: 0.8rem;
-  text-align: center;
-  font-family: "Manifoldxbold";
-}
-
-/* TWEEDE SECTIE PT*/
-
-#pt-page section:nth-of-type(2) {
-  position: relative;
-  height: 900px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-#pt-page section:nth-of-type(2) img {
-  position: absolute;
-  top: 5%;
-  left: 0;
-  width: 90%;
-  height: 40%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-#pt-page section:nth-of-type(2) div {
-  position: absolute;
-  top: 20%;
-  right: 0;
-  bottom: 0;
-  width: 90%;
-  height: 70%;
-  padding: 2rem;
-  background-color: #f4f4f4;
-  z-index: 2;
-}
-
-#pt-page section:nth-of-type(2) h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding-left: 1em;
-  padding-top: 1em;
-  margin-bottom: 1rem;
-  color: #333; 
-  font-family: "Integralbold";
-}
-
-#pt-page section:nth-of-type(2) p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  line-height: 1.6em;
-  padding-left: 1.8em;
-  padding-top: 1em;
-}
-
-#pt-page section:nth-of-type(2) a {
-  display: inline-block;
-  padding: 1rem 1rem;
-  margin-left: 2.2em;
-  margin-top: 0.8em;
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  border: 2px solid black;
   text-transform: uppercase;
-  text-decoration: none;
-  font-size: 0.7em;
-  text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: "Manifoldxbold";
 }
 
-#pt-page section:nth-of-type(2) a:hover {
-  background-color: var(--background-background-color);
-  color: white;
-}
-
-/* DERDE SECTIE PT */
-#pt-page section:nth-of-type(3) {
-  position: relative;
-  height: 750px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-bottom: 3rem;
-}
-
-#pt-page section:nth-of-type(3) img {
-  position: absolute;
-  top: 0;
-  left: 10%;
-  width: 90%; 
-  height: 55%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-#pt-page section:nth-of-type(3) div {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 10%;
-  bottom: 0;
-  top: 15%;
-  width: 5; 
-  padding: 2em;
-  height: 600px;
-  background-color: #f4f4f4; 
-  z-index: 2;
-}
-
-#pt-page section:nth-of-type(3) h3 {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #333; 
-  font-family: "Integralbold";
-  padding: 1em;
-}
-
-#pt-page section:nth-of-type(3) p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-  padding-left: 1.4em;
-}
-
-#pt-page section:nth-of-type(3) a {
-  display: inline-block;
-  padding: 1rem 1rem;
-  margin-left: 2.2em;
-  margin-top: 0.8em;
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  border: 2px solid black;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 0.7em;
-  text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: "Manifoldxbold";
-}
-
-#pt-page section:nth-of-type(3) a:hover {
-  background-color: #ec3648; 
-  color: white;
-}
-
-/* VIERDE SECTIE PT*/
-#pt-page section:nth-of-type(4) {
-  position: relative;
-  height: 900px; 
-  display: flex;
-  justify-content: flex-start; 
-  align-items: flex-start;
-}
-
-#pt-page section:nth-of-type(4) img {
-  position: absolute;
-  left: 0;
-  width: 90%; 
-  height: 40%;
-  object-fit: cover; 
-  z-index: 1;
-}
-
-#pt-page section:nth-of-type(4) div {
-  position: absolute;
-  top: %;
-  right: 0;
-  bottom: 0;
-  width: 90%; 
-  height: 70%;
-  padding: 2rem;
-  background-color: #f4f4f4; 
-  z-index: 2;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
-}
-
-#pt-page section:nth-of-type(4) h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1em;
-  padding-top: 1em;
-  padding-left: 1em;
-  color: #333; 
-  font-family: "Integralbold";
-}
-
-#pt-page section:nth-of-type(4) p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  line-height: 1.6em;
-  padding-left: 1.8em;
-  padding-top: 1em;
-}
-
-#pt-page section:nth-of-type(4) a {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  border: 2px solid black;
-  text-transform: uppercase;
-  text-decoration: none;
-  margin-left: 2.2em;
-  margin-top: 0.8em;
-  font-size: 0.7em;
-  text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: "Manifoldxbold";
-}
-
-#pt-page section:nth-of-type(4) a:hover {
-  background-color: #ffffff; 
-  color: white;
-}
-
-/* 5DE SECTIE PT MORE Personal */
-/* Algemene sectie-styling */
-#pt-page section:nth-of-type(5) {
-  text-align: center;
-  padding: 2rem;
-  background-color: #fff;
-}
-
-#pt-page section:nth-of-type(5) h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding-left: 2em;
-  padding-top: 1em;
-  margin-bottom: 1rem;
-  color: #333;
-  font-family: "Integralbold";
-}
-
-
-/* Scrollbare container */
-#pt-page section:nth-of-type(5) ul {
-  display: flex;
-  overflow-x: scroll;
-  list-style: none;
-  gap: 0.1rem; 
-  scroll-behavior: smooth;
-  padding: 0;
-  margin: 0;
-}
-
-#pt-page section:nth-of-type(5) ul::-webkit-scrollbar {
-  height: 8px; 
-}
-
-#pt-page section:nth-of-type(5) ul::-webkit-scrollbar-thumb {
-  background-color: #888; 
-  border-radius: 10px;
-}
-
-/* Stijling van de afbeelding en de lijstitems */
-#pt-page section:nth-of-type(5) ul li {
-  position: relative;
-  min-width: 300px; 
-  flex-shrink: 0; 
-}
-
-#pt-page section:nth-of-type(5) ul li img {
-  width: 80%;
-  height: 90%;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  padding: 0;
-  margin: 0;
-}
-
-#pt-page section:nth-of-type(5) ul li:hover img {
-  transform: scale(1.05); 
-}
-
-/* Tekst overlay stijling */
-#pt-page section:nth-of-type(5) ul li a {
-  display: block;
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7); 
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-#pt-page section:nth-of-type(5) ul li a:hover {
-  background-color: #ec3648;
-}
-
-/* Border effect */
-#pt-page section:nth-of-type(5) ul li {
-  background: linear-gradient(white, white),
-    linear-gradient(90deg, rgb(82, 80, 80) 0%, transparent 100%);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-}
-
-/* 6DE STUKJE PT*/
-
-#pt-page section:nth-of-type(6) {
-  position: relative;
-  height: 900px; 
-  display: flex;
-  justify-content: flex-start; 
-  align-items: flex-start;
-}
-
-#pt-page section:nth-of-type(6) img {
-  position: absolute;
-  top: 5%;
-  left: 0;
-  width: 90%; 
-  height: 40%;
-  object-fit: cover; 
-  z-index: 1;
-}
-
-#pt-page section:nth-of-type(6) div {
-  position: absolute;
-  top: 20%;
-  right: 0;
-  bottom: 0;
-  width: 90%; 
-  height: 70%;
-  padding: 2rem;
-  background-color: #f4f4f4; 
-  z-index: 2;
-}
-
-#pt-page section:nth-of-type(6) h3 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #333; /* Donkere tekstkleur */
-  font-family: "Integralbold";
-  padding-left: 1em;
-
-}
-
-#pt-page section:nth-of-type(6) ul {
-}
-#pt-page section:nth-of-type(6) li {
-}
-#pt-page section:nth-of-type(6) p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-  padding: 2em;
-}
-
-#pt-page section:nth-of-type(6) a {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  border: 2px solid black;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 1rem;
-  text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: "Manifoldxbold";
-}
-
-#pt-page section:nth-of-type(6) a:hover {
-  background-color: #ec3648; 
-  color: white;
-}
-
-/* 7DE STUKJE PT */
-
-#pt-page section:nth-of-type(7) {
-  position: relative;
-  height: 800px; 
-  display: flex;
-  justify-content: flex-start; 
-  align-items: flex-start;
-  margin-bottom: 3rem; 
-}
-
-#pt-page section:nth-of-type(7) img {
-  position: absolute;
-  top: 20%;
-  left: 10%;
-  width: 90%; 
-  height: 70%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-#pt-page section:nth-of-type(7) div {
-  position: absolute;
-  right: 10%;
-  left: 0%;
-  bottom: 0;
-  top: 0%;
-  width: 5; /* Het tekstvak beslaat de helft van de breedte */
-  padding: 2rem;
-  height: 400px;
-  background-color: #f4f4f4; /* Witte achtergrond voor het tekstvak */
-  z-index: 2;
-}
-
-#pt-page section:nth-of-type(7) h3 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #333; /* Donkere tekstkleur */
-  z-index: 3;
-  font-family: "Integralbold";
-}
-
-#pt-page section:nth-of-type(7) p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-#pt-page section:nth-of-type(7) a {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  border: 2px solid black;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 1rem;
-  text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: "Manifoldxbold";
-}
-
-#pt-page section:nth-of-type(7) a:hover {
-  background-color: #ec3648; /* Rode achtergrond bij hover */
-  color: white;
-}
-
-/* 8STE STUKJE PT clubtrainers */
-#pt-page section:nth-of-type(10) {
-  overflow: hidden;
-  height: 100vh;
-}
-
-#pt-page section:nth-of-type(8) img {
-  width: 300px; /* Pas de breedte van de afbeeldingen aan zoals nodig */
-  height: auto;
-  margin-bottom: 10px;
-}
-
-/* Stel de eerste afbeelding en tekst links */
-#pt-page section:nth-of-type(8) img:nth-of-type(1) {
-  float: left;
-  margin-right: 20px;
-}
-
-#pt-page section:nth-of-type(8) p:nth-of-type(1) {
-  float: left;
-  margin-right: 20px;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 10px;
-  clear: left;
-}
-
-/* Stel de tweede afbeelding en tekst rechts */
-#pt-page section:nth-of-type(8) img:nth-of-type(2) {
-  float: right;
-  margin-left: 20px;
-}
-
-#pt-page section:nth-of-type(8) p:nth-of-type(2) {
-  float: right;
-  margin-left: 20px;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 10px;
-  clear: right;
-}
-
-/* Derde afbeelding en tekst links */
-#pt-page section:nth-of-type(8) img:nth-of-type(3) {
-  float: left;
-  margin-right: 20px;
-  clear: both; /* Zorg ervoor dat de volgende rij onder de eerste komt */
-}
-
-#pt-page section:nth-of-type(8) p:nth-of-type(3) {
-  float: left;
-  margin-right: 20px;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 10px;
-  clear: left;
-}
-
-/* Vierde afbeelding en tekst rechts */
-#pt-page section:nth-of-type(8) img:nth-of-type(4) {
-  float: right;
-  margin-left: 20px;
-}
-
-#pt-page section:nth-of-type(8) p:nth-of-type(4) {
-  float: right;
-  margin-left: 20px;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 10px;
-  clear: right;
-}
-
-
-/* 9DE STUKJE PT FAQ */
-#pt-page section:nth-of-type(9) h3 {
-  font-size: 28px;
-  font-weight: bold;
-  font-family: var(--font-2);
-  padding-bottom: 1em;
-}
-
-#pt-page section:nth-of-type(9) details {
-  margin-bottom: 20px;
-}
-
-#pt-page section:nth-of-type(9) summary {
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-5);
-}
-
-#pt-page section:nth-of-type(9) summary::marker {
-  content: "\25BC";
-  font-size: 16px;
-  padding-right: 10px;
-
-}
-
-#pt-page section:nth-of-type(9) details[open] summary::marker {
-  content: "\25B2";
-}
-
-#pt-page section:nth-of-type(9) p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333;
-  margin-top: 10px;
-  font-family: var(--font-5);
-}
-
-#pt-page section:nth-of-type(9) a {
-  color: #333;
-  text-decoration: underline;
-}
-
-#pt-page section:nth-of-type(9) a:hover {
-  color: #555;
-}
-
-
-#pt-page section:nth-of-type(9) details + details {
-  border-top: 1px solid #ddd;
-  padding-top: 20px;
+footer nav:nth-of-type(2) a:hover {
+  color: #fff;
 }

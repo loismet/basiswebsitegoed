@@ -119,26 +119,20 @@ hier na afloop snel de uitkomsten van de meeting vastleggen
 
 ### Stand van zaken
 
-hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
+Momenteel gaat ook alles nog goed. Ik ben nog niet erg ver ivm ziek zijn... Ik besrpeek veel met klasgenoten en kijk zo nodig op internet en youtube om later dingen te kunnen toepassen.
 
 ### Agenda voor meeting
 
-samen met je groepje opstellen
-
-| student 1      | student 2          | student 3    | student 4        |
-| -------------- | ------------------ | ------------ | ---------------- |
-| dit bespreken  | en dit             | en ik dit    | en dan ik dat    |
-| en dat ook nog | dit als er tijd is | nog een punt | dit wil ik zeker |
-| ...            | ...                | ...          | ...              |
+- vragen over scrollende tekst
+- svg's 1 voor 1 laten tekenen op de achtergrond
+-
 
 ### Verslag van meeting
 
 hier na afloop snel de uitkomsten van de meeting vastleggen
 
-- punt 1
-- punt 2
-- nog een punt
-- ...
+- BIj nienke gezien hoe ik dingen een voor een tevoorschijn kan laten komen. Ik ga het eerst zelf proberen, mocht dit niet lukken ga ik nienke vragen om mij te helpen.
+- geleerd hoe ik mijn join now knop moet laten staan naast het hamburger menu wanneer het scherm kleiner word gemaakt.
 
 </details>
 
@@ -155,34 +149,31 @@ Lijst met je bevindingen die in de test naar voren kwamen (geef ook aan wat er v
 
 ## Voortgang 3 (week 4)
 
-<!-- wat ik wil vragen: de svg/ filter over een foto krijgen met clipmask, een knop maken waardoor je een deel verbergt en kan laten zien,  -->
 <details>
   <summary>uitwerken voor 3<sup>e</sup> voortgang</summary>
 
 ### Stand van zaken
 
-hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
+Het gaat tot dit punt goed uit vee dingen kom ik zelf. Sommige dingen zoek ik op maar probeer het dan alleen te lezen en zelf toe te passen.
 
 ### Agenda voor meeting
 
 samen met je groepje opstellen
 
-| student 1      | student 2          | student 3    | student 4        |
-| -------------- | ------------------ | ------------ | ---------------- |
-| dit bespreken  | en dit             | en ik dit    | en dan ik dat    |
-| en dat ook nog | dit als er tijd is | nog een punt | dit wil ik zeker |
-| ...            | ...                | ...          | ...              |
+- filter over fotos
+- scrollende tekst labels
+- dark mode
+- vraag over een popup die net altijd laten zien wordt
 
 ### Verslag van meeting
 
-hier na afloop snel de uitkomsten van de meeting vastleggen
+k had gesprek 3 alleen met sanne deze keer aangezien ik een tijdje ziek ben geweest.
 
-- punt 1
-- punt 2
-- nog een punt
-- ...
-
-</details>
+- geleerd hoe ik zelf een filter kan maken voor over een foto
+- geleerd hoe ik een filter over mijn foto kan toevoegen
+- besproken heo ik mijn website het best kan doen in darkmode
+- de popup alleen tevoorschijn laten komen als dit van toepassing is voor die persoon
+- </details>
 
 ## Eindgesprek (week 5)
 
@@ -191,6 +182,7 @@ hier na afloop snel de uitkomsten van de meeting vastleggen
 
 ### Je uitkomst - karakteristiek screenshots:
 
+  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1"> 
   <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1">
 
 ### Dit ging goed/Heb ik geleerd:
@@ -215,8 +207,34 @@ Nb. Wees specifiek ('css-tricks' als bron is bijv. niet specifiek genoeg).
 Nb. ChatGpT en andere AI horen er ook bij.
 Nb. Vermeld de bronnen ook in je code.
 
-1. bron 1
-2. bron 2
-3. ...
+1. https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/
+   https://opensource.com/article/21/10/dark-themes-websites
+   (darkmode)
+
+2. https://www.sitepoint.com/style-html-details-element/
+   https://chatgpt.com/
+   Uitleg sanne tijdens feedback moment 1
+   (summary styling)
+
+3. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
+   Uitleg sanne tijdens feedback moment 1
+   (summary Html)
+
+4. /_ https://stackoverflow.com/questions/17212094/fill-background-color-left-to-right-css?newreg=2fbd0bc86bcd495493c6034bee03b702 _/
+   uitleg sanne tijdens feedbackgesprek 3
+   (a/button transition)
+
+5. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations 
+   uitleg in feedbackgesprek was met een marque dit wilde ik vermijden dus heb ik het op deze maneir opgelost  
+   (scrolling banner 1 & 2)
+6. https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+   https://www.w3schools.com/jsref/met_element_scrollintoview.asp
+   https://www.javascripttutorial.net/javascript-dom/javascript-scrollintoview/
+   (scroll into view fotos) 3 secties
+   
+7.
+8.
+9.
+10.
 
 </details>

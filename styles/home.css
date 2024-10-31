@@ -1,0 +1,939 @@
+/* 1STE SECTIE HOME */
+#homepage section:nth-of-type(1) {
+  display: grid;
+  grid-template-rows: repeat(8, minmax(0, auto));
+  width: 100%;
+  height: 55vh;
+  position: relative;
+  justify-items: center;
+  text-align: center;
+  background-image: url("images/homepage.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+#homepage section:nth-of-type(1) img {
+  width: 100%;
+  height: 95%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
+}
+
+#homepage section:nth-of-type(1) h2,
+#homepage section:nth-of-type(1) h3,
+#homepage section:nth-of-type(1) p,
+#homepage section:nth-of-type(1) ul {
+  z-index: 2;
+  color: var(--kopjes-color);
+  font-family: var(--font-2), sans-serif;
+}
+
+#homepage section:nth-of-type(1) h2 {
+  grid-row: 3;
+  font-size: 2.5em;
+  align-self: center;
+  line-height: 1em;
+  letter-spacing: 0.01em;
+}
+
+#homepage section:nth-of-type(1) h3 {
+  grid-row: 4;
+  font-size: var(--font-size-h3);
+  height: 0.4em;
+  width: 50%;
+  letter-spacing: var(--letter-spacing-1);
+}
+
+#homepage section:nth-of-type(1) p {
+  grid-row: 6;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-family: var(--font-6);
+}
+
+#homepage section:nth-of-type(1) ul {
+  grid-row: 7;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+}
+
+#homepage section:nth-of-type(1) ul li {
+  padding: 0;
+  font-size: 0.9em;
+}
+
+#homepage section:nth-of-type(1) ul li a {
+  color: var(--text-color);
+  font-family: "Manifoldreg";
+  text-align: center;
+  background-color: var(--color-button-r);
+
+  /* https://stackoverflow.com/questions/17212094/fill-background-color-left-to-right-css?newreg=2fbd0bc86bcd495493c6034bee03b702 */
+  /* uitleg sanne tijdens feedbackgesprek 3 */
+  background: linear-gradient(to left, #ec3648 50%, black 50%) right;
+  transition: 0.2s ease-out;
+  background-size: 200% 100%;
+
+  padding: 0.6em 4.6em;
+  display: block;
+  letter-spacing: 0.15em;
+}
+
+#homepage section:nth-of-type(1) ul li a:hover {
+  background-color: black;
+  background-position: left;
+}
+
+@media (min-width: 1200px) {
+  #homepage section:nth-of-type(1) {
+    height: 90vh;
+  }
+
+  #homepage section:nth-of-type(1) h2 {
+    grid-row: 3;
+    font-size: 5em;
+    width: 60%;
+  }
+
+  #homepage section:nth-of-type(1) h3 {
+    grid-row: 4;
+    font-size: 2em;
+    width: 100%;
+  }
+
+  #homepage section:nth-of-type(1) p {
+    grid-row: 5;
+    font-size: var(--font-size-h3);
+    margin: 0;
+    padding: 0;
+    height: 0.4em;
+    width: 50%;
+    letter-spacing: var(--letter-spacing-1);
+  }
+
+  #homepage section:nth-of-type(1) ul {
+    grid-row: 6;
+    flex-direction: row;
+    gap: 0.8em;
+  }
+}
+
+@media (min-width: 1400px) {
+  #homepage section:nth-of-type(1) {
+    height: 100vh;
+  }
+}
+/* BANNERS  */
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations */
+/* uitleg in feedbackgesprek was met een marque dit wilde ik vermijden dus heb ik het op deze maneir opgelost  */
+/* BANNER 1 */
+
+#homepage section:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 6.25em;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scrollende tekst op de achtergrond */
+#homepage section:nth-of-type(2) h4 {
+  position: absolute;
+  z-index: 1;
+  font-size: 4em;
+  font-family: "Integralxbold";
+  animation: scroll-text 10s linear infinite;
+  white-space: nowrap;
+  color: var(--color-text);
+  top: 10%;
+}
+
+/* Duplicatie van de tekst */
+#homepage section:nth-of-type(2) p::after {
+  content: attr(data-text);
+  position: absolute;
+  white-space: nowrap;
+  top: 0;
+  left: 100%;
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+#homepage section:nth-of-type(2) div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  left: 70%;
+  bottom: 35%;
+  width: 20%;
+  height: 0.63em;
+  position: relative;
+  margin-top: 20px;
+}
+
+#homepage section:nth-of-type(2) div svg {
+  width: 1em;
+  padding: 0;
+  height: 4em;
+}
+
+/* Knop styling */
+#homepage section:nth-of-type(2) a {
+  position: relative;
+  z-index: 2;
+  padding: 0.8em 1.5em;
+  background-color: var(--color-button-r);
+
+  /* https://stackoverflow.com/questions/17212094/fill-background-color-left-to-right-css?newreg=2fbd0bc86bcd495493c6034bee03b702 */
+  /* uitleg sanne tijdens feedbackgesprek 3 */
+  background: linear-gradient(to left, #ec3648 50%, black 50%) right;
+  transition: 0.2s ease-out;
+  background-size: 200% 200%;
+
+  width: 12.5em;
+  height: 2.5em;
+  color: var(--text-color);
+  font-family: "Manifoldreg", sans-serif;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-1);
+  margin-top: 1em;
+  text-transform: uppercase;
+
+  align-self: flex-start;
+  left: 12%;
+  top: 30%;
+}
+
+#homepage section:nth-of-type(2) a:hover {
+  background-color: #000000;
+  background-position: left;
+}
+
+@media (min-width: 1400px) {
+  #homepage section:nth-of-type(2) h4 {
+    font-size: 5em;
+  }
+
+  #homepage section:nth-of-type(2) div {
+    width: 10%;
+    height: 1.25em;
+  }
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations */
+/* uitleg in feedbackgesprek was met een marque dit wilde ik vermijden dus heb ik het op deze maneir opgelost  */
+/* BANNER 2 */
+#homepage section:nth-of-type(4) {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  width: 100%;
+  height: 9.38em;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scrollende tekst op de achtergrond */
+#homepage section:nth-of-type(4) h4 {
+  position: absolute;
+  z-index: 1;
+  font-size: 4em;
+  font-family: "Integralxbold";
+  animation: scroll-text 10s linear infinite;
+  color: var(--color-text);
+  white-space: nowrap; /* Zorgt ervoor dat de tekst niet wordt afgebroken */
+  top: 10%;
+}
+
+/* Knop styling */
+#homepage section:nth-of-type(4) a {
+  position: relative;
+  z-index: 2;
+  padding: 0.8em 1.5em;
+  background-color: var(--color-button-r);
+  width: 60%;
+  color: var(--text-color);
+
+  /* https://stackoverflow.com/questions/17212094/fill-background-color-left-to-right-css?newreg=2fbd0bc86bcd495493c6034bee03b702 */
+  /* uitleg sanne tijdens feedbackgesprek 3 */
+  background: linear-gradient(to left, #ec3648 50%, black 50%) right;
+  transition: 0.2s ease-out;
+  background-size: 200% 200%;
+
+  width: 18.75em;
+  height: 2.5em;
+
+  font-family: "Manifoldreg", sans-serif;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-1);
+  margin-top: 1em;
+  font-weight: bold;
+  align-self: flex-start;
+  left: 12%;
+  top: 40%;
+}
+
+#homepage section:nth-of-type(4) div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  left: 70%;
+  bottom: 5%;
+  width: 20%;
+  height: 0.63em;
+  position: relative;
+  margin-top: 1.25em;
+}
+
+#homepage section:nth-of-type(4) div svg {
+  width: 1em;
+  padding: 0;
+  height: 4em;
+}
+
+#homepage section:nth-of-type(4) a:hover {
+  background-color: black;
+  background-position: left;
+}
+
+@media (min-width: 1200px) {
+  #homepage section:nth-of-type(4) h4 {
+    font-size: 5em;
+  }
+
+  #homepage section:nth-of-type(4) div {
+    width: 10%;
+    height: 1.25em;
+  }
+}
+
+/* 2DE SECTIE HOME LOCATIELIJST*/
+#homepage section:nth-of-type(3) {
+  padding: 2em;
+  background-color: var(--main-bg-color);
+  text-align: left;
+  margin-left: 1em;
+}
+
+#homepage section:nth-of-type(3) h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: 2em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  font-family: var(--font-3);
+  letter-spacing: var(--letter-spacing-1);
+}
+
+#homepage section:nth-of-type(3) details {
+  margin-bottom: 1.5em;
+}
+
+/* https://www.sitepoint.com/style-html-details-element/ */
+/* https://chatgpt.com/ */
+/* Uitleg sanne tijdens feedback moment 1 */
+/* (summary styling) */
+#homepage section:nth-of-type(3) summary {
+  font-size: 1.4em;
+  font-weight: bold;
+  cursor: cell;
+  position: relative;
+  padding: 0.5em 0;
+  list-style: none;
+  color: var(--summary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-3);
+  letter-spacing: var(--letter-spacing-1);
+}
+
+#homepage section:nth-of-type(3) summary::after {
+  content: "";
+  border: solid var(--summary-color);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 0.31em;
+  transform: translateY(-50%) rotate(45deg);
+  position: absolute;
+  right: 10%;
+  top: 50%;
+}
+
+#homepage section:nth-of-type(3) details[open] summary::after {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+#homepage section:nth-of-type(3) ul {
+  padding-left: 1em;
+  margin-top: 1em;
+}
+
+#homepage section:nth-of-type(3) ul li {
+  font-size: 1.1em;
+  color: var(--color-text);
+  padding: 0.5em 0;
+  list-style-type: none;
+  font-family: var(--font-3);
+  color: #000;
+  letter-spacing: var(--letter-spacing-1);
+}
+
+@media (min-width: 1200px) {
+  #homepage section:nth-of-type(3) h3 {
+    font-size: 3em;
+    margin-top: 2em;
+    width: 40%;
+  }
+
+  #homepage section:nth-of-type(3) summary {
+    font-size: 2.4em;
+    font-weight: bold;
+    cursor: cell;
+    position: relative;
+    padding: 0.5em 0;
+    list-style: none;
+    color: var(--summary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-3);
+    letter-spacing: var(--letter-spacing-1);
+    width: 60%;
+  }
+}
+
+/* 3DE SECTIE HOME SOCIAL WALL */
+
+#homepage section:nth-of-type(5) {
+  text-align: center;
+  padding: 2em;
+  background-color: var(--main-bg-color);
+  margin: 0 auto;
+  height: 100%;
+  margin-top: 2em;
+  margin-left: 0;
+}
+
+#homepage section:nth-of-type(5) h3 {
+  display: flex;
+  font-size: 1.5em;
+  justify-content: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  font-family: var(--font-2);
+  line-height: 1em;
+  letter-spacing: var(--letter-spacing-1);
+  margin-left: 0;
+}
+
+#homepage section:nth-of-type(5) p {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  margin-bottom: 2em;
+  letter-spacing: var(--letter-spacing-1);
+  font-family: var(--font-2);
+}
+
+#homepage section:nth-of-type(5) h3,
+#homepage section:nth-of-type(5) h4 {
+  text-align: left;
+}
+
+#homepage section:nth-of-type(5) h4 {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-family: var(--font-1);
+  margin-bottom: 2em;
+  letter-spacing: var(--letter-spacing-1);
+}
+
+#homepage section:nth-of-type(5) ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  justify-items: center;
+  width: 100%;
+}
+
+#homepage section:nth-of-type(5) ul li {
+  display: none;
+}
+
+#homepage section:nth-of-type(5) ul li:nth-child(-n + 4) {
+  display: block;
+}
+
+#homepage section:nth-of-type(5) li img {
+  width: 100%;
+  max-width: 18.75em;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+}
+
+#homepage section:nth-of-type(5) button {
+  background-color: black;
+  color: var(--text-color);
+  font-size: 0.7em;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12.5em;
+  height: 50px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 2em;
+}
+
+@media (min-width: 768px) {
+  #homepage section:nth-of-type(5) ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #homepage section:nth-of-type(5) ul li {
+    display: block; /* Toon alle 6 foto's */
+  }
+}
+
+/* Afbeeldingen centreren binnen hun grid-item */
+#homepage section:nth-of-type(5) li img {
+  width: 100%;
+  max-width: 18.75em;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+}
+
+/* 4DE SECTIE HOME MORE MORE */
+#homepage section:nth-of-type(6) {
+  background-color: var(--main-bg-color);
+}
+#homepage section:nth-of-type(6) h3 {
+  font-family: var(--font-2);
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 1.25em;
+  margin-left: 1em;
+  text-align: left;
+  width: 80%;
+  letter-spacing: 0.05em;
+}
+
+/* Horizontaal scrollbare lijst */
+#homepage section:nth-of-type(6) ul {
+  list-style-type: none;
+  padding: 0 1.25em 0 1.25em;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden; /* Ensure vertical scrolling is prevented */
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  margin-bottom: 2em;
+  position: relative;
+  justify-content: start;
+  align-items: center;
+  height: 25em;
+}
+
+/* Verwijder scrollbar styling */
+#homepage section:nth-of-type(6) ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* Styling voor elk individueel item */
+#homepage section:nth-of-type(6) ul li {
+  position: relative;
+  height: 18.75em;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1em;
+  overflow: hidden;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+/* Maak de buitenste foto's iets hoger */
+#homepage section:nth-of-type(6) ul li[data-index="0"],
+#homepage section:nth-of-type(6) ul li[data-index="2"] {
+  transform: translateY(-1.25em);
+}
+
+#homepage section:nth-of-type(6) ul li[data-index="1"] {
+  transform: translateY(+1.25em);
+}
+
+/* Afbeeldingen styling binnen de items */
+#homepage section:nth-of-type(6) ul li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay tekst styling */
+#homepage section:nth-of-type(6) ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-2);
+  font-size: 1.5em;
+  position: absolute;
+  bottom: 10%;
+  left: 25%;
+  top: 10%;
+  width: 50%;
+  color: var(--text-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+@media (min-width: 1200px) {
+  #homepage section:nth-of-type(6) {
+    height: 43.75em;
+  }
+  #homepage section:nth-of-type(6) h3 {
+    font-size: 2em;
+    margin-left: 3em;
+    margin-bottom: 2em;
+    width: 30%;
+  }
+
+  #homepage section:nth-of-type(6) ul {
+    justify-content: center;
+  }
+
+  #homepage section:nth-of-type(6) ul li {
+    width: 25em;
+    height: 25em;
+  }
+}
+
+/* 5DE SECTIE HOME MORE THAN */
+#homepage section:nth-of-type(7) {
+  display: grid;
+  grid-template-rows: repeat(6, minmax(0, auto));
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  justify-items: center;
+  text-align: center;
+  background-image: url("images/homepage.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+#homepage section:nth-of-type(7) img {
+  width: 100%;
+  height: 95%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
+}
+
+#homepage section:nth-of-type(7) h3,
+#homepage section:nth-of-type(7) ul {
+  z-index: 2;
+  color: var(--kopjes-color);
+  font-family: var(--font-2), sans-serif;
+}
+
+#homepage section:nth-of-type(7) h3 {
+  grid-row: 4;
+  font-size: 2em;
+  width: 70%;
+}
+
+#homepage section:nth-of-type(7) ul {
+  grid-row: 5;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  align-items: center;
+}
+
+#homepage section:nth-of-type(7) ul li {
+  padding: 0.3em 4em;
+  width: 70%;
+}
+
+#homepage section:nth-of-type(7) ul li a {
+  color: var(--text-color);
+  background-color: var(--color-button-r);
+  font-family: var(--font-5);
+  text-align: center;
+  letter-spacing: 0.15em;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+  padding: 1em 4em;
+  margin: 0;
+
+  /* https://stackoverflow.com/questions/17212094/fill-background-color-left-to-right-css?newreg=2fbd0bc86bcd495493c6034bee03b702 */
+  /* uitleg sanne tijdens feedbackgesprek 3 */
+  background: linear-gradient(to left, #ec3648 50%, black 50%) right;
+  transition: 0.2s ease-out;
+  background-size: 200% 200%;
+}
+
+#homepage section:nth-of-type(7) ul li a:hover {
+  background-color: #c0392b;
+  background-position: left;
+}
+
+@media (min-width: 1200px) {
+  #homepage section:nth-of-type(7) {
+    height: 80vh;
+  }
+
+  #homepage section:nth-of-type(7) h3 {
+    font-size: 3.5em;
+  }
+
+  #homepage section:nth-of-type(7) ul {
+    flex-direction: row;
+    width: 20%;
+    justify-content: center;
+  }
+
+  #homepage section:nth-of-type(7) ul li {
+    padding: 0.3em 0;
+  }
+}
+
+/* 6DE SECTIE HOME THERE FOR YOU */
+
+#homepage section:nth-of-type(8) h3 {
+  font-size: 1.5em;
+  font-family: var(--font-2);
+  font-weight: bold;
+  margin-bottom: 1.25em;
+  text-align: left;
+  margin-left: 1em;
+  width: 80%;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+}
+
+/* Horizontaal scrollbare lijst */
+#homepage section:nth-of-type(8) ul {
+  list-style-type: none;
+  padding: 0 1.25em 0 1.25em;
+  display: flex;
+  gap: 1.25em;
+  overflow-x: auto;
+  overflow-y: hidden; /* Ensure vertical scrolling is prevented */
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  margin-bottom: 2em;
+  position: relative;
+  justify-content: start;
+  align-items: center;
+  height: 25em;
+}
+
+/* Verwijder scrollbar styling */
+#homepage section:nth-of-type(8) ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* Styling voor elk individueel item */
+#homepage section:nth-of-type(8) ul li {
+  position: relative;
+  width: 18.75em;
+  height: 18.75em;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1em;
+  overflow: hidden;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+/* Maak de buitenste foto's iets hoger */
+#homepage section:nth-of-type(8) ul li[data-index="0"],
+#homepage section:nth-of-type(8) ul li[data-index="2"] {
+  transform: translateY(-1.25em);
+}
+
+#homepage section:nth-of-type(8) ul li[data-index="1"] {
+  transform: translateY(+1.25em);
+}
+/* Afbeeldingen styling binnen de items */
+#homepage section:nth-of-type(8) ul li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay tekst styling */
+#homepage section:nth-of-type(8) ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-2);
+  font-size: 1.5em;
+  position: absolute;
+  bottom: 10%;
+  left: 25%;
+  top: 10%;
+  width: 50%;
+  color: var(--text-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover-effect voor de overlay tekst */
+#homepage section:nth-of-type(8) ul li a:hover {
+  background-color: #ec3648;
+}
+
+@media (min-width: 1200px) {
+  #homepage section:nth-of-type(8) {
+    height: 43.75em;
+  }
+  #homepage section:nth-of-type(8) h3 {
+    font-size: 2em;
+    margin-left: 3em;
+    margin-bottom: 2em;
+    width: 30%;
+  }
+
+  #homepage section:nth-of-type(8) ul {
+    justify-content: center;
+  }
+
+  #homepage section:nth-of-type(8) ul li {
+    width: 25em;
+    height: 25em;
+  }
+}
+
+/* 7DE SECTIE HOME LATEST */
+
+#homepage section:nth-of-type(9) {
+  padding: 2.5em;
+  background-color: var(--main-bg-color);
+}
+
+/* Titel van de sectie */
+#homepage section:nth-of-type(9) h3 {
+  font-size: 2.25em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.9em;
+  font-family: var(--font-2);
+  font-size: 1.5em;
+}
+
+/* Ul-lijst stijl */
+#homepage section:nth-of-type(9) ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.6em; /* Optioneel, voor wat ruimte tussen de items */
+}
+
+/* Algemene styling voor elk item (li) */
+#homepage section:nth-of-type(9) ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5em;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 1.25em;
+}
+
+/* Afbeelding styling */
+ul li:nth-child(9) ul li img {
+  width: 9.4em;
+  height: 9.4em;
+  object-fit: cover;
+  border-radius: 0.5em;
+}
+
+/* Algemene tekststyling */
+ul li:nth-child(9) ul li {
+  margin: 0;
+  color: #333;
+  display: flex;
+  justify-content: row;
+}
+
+/* Titel van de blogpost */
+ul li:nth-child(9) p:nth-of-type(1) {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+/* Meta-informatie zoals datum */
+ul li:nth-child(9) p:nth-of-type(2) {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Oneven items (afbeelding links, tekst rechts) */
+ul li:nth-child(odd) {
+  flex-direction: row;
+}
+
+/* Even items (afbeelding rechts, tekst links) */
+ul li:nth-child(even) {
+  flex-direction: row-reverse;
+}
