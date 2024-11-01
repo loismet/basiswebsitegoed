@@ -13,7 +13,7 @@
    
       </nav>
     <header>
-      <button id="dark-mode-toggle">Dark Mode</button>
+      <button id="dark-mode-toggle" aria-label="Schakel donker modus in of uit">Dark Mode</button>
       <nav role="navigation">
         <h1><a href="index.html">TRAINMORE</a></h1>
         <ul id="menu">
@@ -162,7 +162,7 @@
       <section>
         <h3>FAQ</h3>
         <details>
-          <summary>What results can I expect?</summary>
+          <summary aria-expanded="false">What results can I expect?</summary>
           <p>
             Your results can vary depending on the goal you choose, however
             simply put, we strongly believe the more you put in, the more you
@@ -171,7 +171,7 @@
         </details>
 
         <details>
-          <summary>How often should I train with a personal trainer?</summary>
+          <summary aria-expanded="false">How often should I train with a personal trainer?</summary>
           <p>
             We recommend 2-3 times a week for the most optimal results and
             progressive overload.
@@ -179,7 +179,7 @@
         </details>
 
         <details>
-          <summary>How much does personal training cost?</summary>
+          <summary aria-expanded="false">How much does personal training cost?</summary>
           <p>
             Our prices vary depending on your package or membership, as well as
             how often you would like Personal Training. You can view our
@@ -188,12 +188,12 @@
         </details>
 
         <details>
-          <summary>How long is one training session?</summary>
+          <summary aria-expanded="false">How long is one training session?</summary>
           <p>Each Personal Training session is 60 minutes.</p>
         </details>
 
         <details>
-          <summary>What happens in a typical training session?</summary>
+          <summary aria-expanded="false">What happens in a typical training session?</summary>
           <p>
             Our Personal Trainers offer customized workout plans tailored to
             individual goals, whether it’s weight loss, muscle building,
@@ -204,28 +204,76 @@
           </p>
         </details>
       </section>
-      <button id="dark-mode-toggle">Dark Mode</button>
+  
     </main>
     <footer>
       <h2>trainmore</h2>
+      <section>
+        <details>
+          <summary aria-expanded="false">clubs</summary>
           <ul>
-              <li>clubs</li>
-              <li>go to</li>
-              <li>contact</li>
+            <li>Trainmore labels</li>
+            <li>Amsterdam</li>
+            <li>Bussum</li>
+            <li>Den haag</li>
+            <li>Eindhoven</li>
+            <li>Groningen</li>
+            <li>Haarlem</li>
           </ul>
-          <nav>
-              <a href="#"></a>
-              <a href="#"></a>
-              <a href="#"></a>
-              <a href="#"></a>
-              <a href="#"></a>
-          </nav>
-          <nav>
-              <a href="#">cookiesbeleid</a> 
-              <a href="#">algemene voorwaarden</a> 
-              <a href="#">privacy policy</a> 
-              <a href="#">club regels /a>
-          </nav>
+        </details>
+
+        <details>
+          <summary aria-expanded="false">Go to</summary>
+          <ul>
+            <li>Student membership</li>
+            <li>Personal training</li>
+            <li>Opzeggen</li>
+            <li>medewerkers login</li>
+            <li>news en more</li>
+            <li>Trainmore bussines</li>
+            <li>discount</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary aria-expanded="false">Contact</summary>
+          <ul>
+            <li>Student membership</li>
+            <li>Personal training</li>
+            <li>Opzeggen</li>
+            <li>medewerkers login</li>
+            <li>news en more</li>
+            <li>Trainmore bussines</li>
+            <li>discount</li>
+          </ul>
+        </details>
+      </section>
+
+      <h4>stay up to date</h4>
+      <nav>
+        <a href="#" aria-label="Facebook link" target="_blank">
+          <img src="images/icons8-facebook-24.png" alt="Facebook" />
+        </a>
+        <a href="#" aria-label="Instagram link" target="_blank">
+          <img src="images/icons8-instagram-24.png" alt="Instagram" />
+        </a>
+        <a href="#" aria-label="YouTube link" target="_blank">
+          <img src="images/icons8-youtube-24.png" alt="YouTube" />
+        </a>
+        <a href="#" aria-label="LinkedIn link" target="_blank">
+          <img src="images/icons8-linkedin-24.png" alt="LinkedIn" />
+        </a>
+        <a href="#" aria-label="TikTok link" target="_blank">
+          <img src="images/icons8-tiktok-24.png" alt="TikTok" />
+        </a>
+      </nav>
+
+      <nav>
+        <a href="#">Cookiesbeleid</a>
+        <a href="#">Algemene voorwaarden</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Club regels</a>
+      </nav>
     </footer>
 
     <script defer src="scripts/script.js"></script>

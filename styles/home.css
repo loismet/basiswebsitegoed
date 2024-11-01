@@ -131,6 +131,8 @@
     height: 100vh;
   }
 }
+
+
 /* BANNERS  */
 
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations */
@@ -429,6 +431,7 @@
 }
 
 /* 3DE SECTIE HOME SOCIAL WALL */
+/* https://css-tricks.com/snippets/css/complete-guide-grid/ */
 
 #homepage section:nth-of-type(5) {
   text-align: center;
@@ -482,6 +485,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1em;
   justify-items: center;
+  align-items: center
   width: 100%;
 }
 
@@ -489,7 +493,7 @@
   display: none;
 }
 
-#homepage section:nth-of-type(5) ul li:nth-child(-n + 4) {
+#homepage section:nth-of-type(5) ul li:nth-child(-n + 6) {
   display: block;
 }
 
@@ -523,6 +527,10 @@
 @media (min-width: 768px) {
   #homepage section:nth-of-type(5) ul {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  #homepage section:nth-of-type(5) ul li:nth-child(-n + 6) {
+    display: block; /* Begin met 6 foto's zichtbaar op grotere schermen */
   }
 
   #homepage section:nth-of-type(5) ul li {
@@ -629,6 +637,13 @@
   padding: 0.5em 1em;
   text-decoration: none;
   transition: background-color 0.3s ease;
+}
+
+@media (min-width: 800px){
+  #homepage section:nth-of-type(6) ul {
+    justify-content: center;
+  }
+
 }
 @media (min-width: 1200px) {
   #homepage section:nth-of-type(6) {
@@ -837,11 +852,12 @@
   transition: background-color 0.3s ease;
 }
 
-/* Hover-effect voor de overlay tekst */
-#homepage section:nth-of-type(8) ul li a:hover {
-  background-color: #ec3648;
-}
 
+@media (min-width: 800px){
+  #homepage section:nth-of-type(8) ul {
+    justify-content: center;
+  }
+}
 @media (min-width: 1200px) {
   #homepage section:nth-of-type(8) {
     height: 43.75em;

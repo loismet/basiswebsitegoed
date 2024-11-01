@@ -142,8 +142,14 @@ hier na afloop snel de uitkomsten van de meeting vastleggen
   <summary>uitwerken na test in 9<sup>e</sup> werkgroep</summary>
 
 ### Bevindingen
+- de screenreader van mijn website is verbeterd deze was op de arginele website heel slecht geen plaatje of link werd uitgelegd ik heb gezzorgd dat mijn website dit wel heeft.
 
-Lijst met je bevindingen die in de test naar voren kwamen (geef ook aan wat er verbeterd is):
+- videos op de website konden niet gepauseerd worden ik heb daarom gekozen voor een stilstaand beeld, ook omdat ik de orginele videos niet kon vinden in de code. 
+
+- Er is nu een darkmode aan toegevoegd aan de website die ik maak!
+
+- de responsiveness moet wel echt nog gedaan worden!
+
 
 </details>
 
@@ -184,7 +190,9 @@ k had gesprek 3 alleen met sanne deze keer aangezien ik een tijdje ziek ben gewe
 
   <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1"> 
   <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1">
-
+<img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1">
+<img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1">
+<img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1">
 ### Dit ging goed/Heb ik geleerd:
 
 Korte omschrijving met plaatjes
@@ -220,21 +228,29 @@ Nb. Vermeld de bronnen ook in je code.
    Uitleg sanne tijdens feedback moment 1
    (summary Html)
 
-4. /_ https://stackoverflow.com/questions/17212094/fill-background-color-left-to-right-css?newreg=2fbd0bc86bcd495493c6034bee03b702 _/
+4. /_ https://stackoverflow.com/questions/17212094/fill-background-color-left-to-right-css? newreg=2fbd0bc86bcd495493c6034bee03b702 _/
    uitleg sanne tijdens feedbackgesprek 3
    (a/button transition)
 
-5. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations 
+5. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations
    uitleg in feedbackgesprek was met een marque dit wilde ik vermijden dus heb ik het op deze maneir opgelost  
    (scrolling banner 1 & 2)
+
 6. https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
    https://www.w3schools.com/jsref/met_element_scrollintoview.asp
    https://www.javascripttutorial.net/javascript-dom/javascript-scrollintoview/
    (scroll into view fotos) 3 secties
-   
-7.
-8.
-9.
-10.
+7. https://css-tricks.com/snippets/css/complete-guide-grid/
+   (uitleg volledig over grid komt ook deels uit de lessen)
+
+8. https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/
+   (dark mode)
+
+9. /_ kan de link van de codepen van sanne niet mer vinden
+   Maar doormiddel van uitleg van Sanne in de les _/
+   (hamburgermenu naar kruisje en terug)
+
+10. https://icons8.com/ 
+    (iconen in footer)
 
 </details>

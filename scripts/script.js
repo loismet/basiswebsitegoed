@@ -26,6 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// dark mode 
+// https://chatgpt.com/
+// https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/
+
 document.addEventListener("DOMContentLoaded", () => {
   const toggleButton = document.getElementById("menu-toggle");
   const darkModeToggle = document.getElementById("dark-mode-toggle"); // Dark mode knop

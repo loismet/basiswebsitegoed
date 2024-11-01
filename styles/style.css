@@ -92,7 +92,6 @@ p {
 
   /* LETTER SPACING */
   --letter-spacing-button: 0.2em;
-  --letter-spacing-1: 0.1em;
 
   /* BUTTON COLOR */
   --color-button-r: #ec3648;
@@ -205,8 +204,8 @@ img {
 }
 
 #dark-mode-toggle:hover {
-  background-color: #333; =
-  color: #fff; =
+  background-color: #333;
+  color: #fff;
 }
 /***********/
 /* HEADER */
@@ -318,7 +317,6 @@ button span {
   }
 
   header nav ul li {
-    text-align: ;
     padding: 0;
     width: 100%;
   }
@@ -337,12 +335,15 @@ button span {
     display: flex;
   }
 
+  /* kan de link van de codepen van sanne niet mer vinden
+  Maar doormiddel van uitleg van Sanne in de les */
+
   /* Animatie voor het veranderen van de hamburgerknop naar een kruisje */
   button.open span:nth-child(1) {
     transform: rotate(45deg);
     position: relative;
     top: 0.4em;
-    background-color: white; 
+    background-color: white;
   }
 
   button.open span:nth-child(2) {
@@ -379,8 +380,8 @@ button span {
   header nav ul {
     display: flex;
     justify-content: center;
-    margin-right: 8em;
-    gap: 3em;
+    margin-right: 6em;
+    gap: 1em;
   }
   header {
     height: 7em;
@@ -397,34 +398,44 @@ button span {
 footer {
   background-color: #000;
   color: #fff;
-  text-align: center;
   padding: 2em;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 footer h2 {
   font-size: 1.5em;
-  margin-bottom: 5em;
+  margin-bottom: 2em;
   text-transform: uppercase;
-  margin-bottom: 1em;
   font-weight: bold;
-  text-align: left; /* Links uitlijnen */
+  text-align: left;
 }
 
-/* Stijling voor de sectie met de details */
+footer h4 {
+  font-family: var(--font-6);
+  font-size: 1.1em;
+  margin-top: 2em;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
 footer section {
-  margin-top: 4em;
   display: flex;
   flex-direction: column;
-  align-items: left;
-  gap: 1em;
-  margin-bottom: 2em;
-  text-align: left; /* Links uitlijnen van tekst */
+  justify-content: left;
+  gap: 1.5em;
+  text-align: left;
+  min-width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 footer section details {
   width: 100%;
-  max-width: 900px;
+  border-bottom: 1px solid #545454;
+  font-family: var(--font-6);
 }
 
 footer section details summary {
@@ -433,8 +444,19 @@ footer section details summary {
   font-weight: bold;
   cursor: pointer;
   padding: 0.5em 0;
-  border-bottom: 1px solid #545454;
-  text-align: left; /* Links uitlijnen */
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+}
+
+footer section details summary::after {
+  content: "\25BC";
+  font-size: 0.8em;
+  color: #fff;
+}
+
+footer section details[open] summary::after {
+  content: "\25B2";
 }
 
 footer section details ul {
@@ -446,42 +468,41 @@ footer section details ul {
 
 footer section details[open] ul {
   display: block;
-  margin-top: 0.5em;
+  padding-top: 0.5em;
 }
 
 footer section details ul li {
   font-size: 0.9em;
   color: #ccc;
   padding: 0.3em 0;
-  text-align: left; /* Links uitlijnen */
 }
 
-/* Stijling voor de social media links (eerste nav) */
 footer nav:nth-of-type(1) {
   display: flex;
-  justify-content: center;
-  gap: 1em;
-  margin-top: 1.5em;
+  justify-content: left;
+  gap: 1.5em;
+  margin-top: 2em;
 }
 
-footer nav:nth-of-type(1) a {
-  color: #fff;
-  font-size: 1.2em;
-  transition: color 0.3s;
+footer nav:nth-of-type(1) a img {
+  width: 2em;
+  height: 2em;
+  transition: transform 0.3s;
 }
 
-footer nav:nth-of-type(1) a:hover {
-  color: #ccc;
+footer nav:nth-of-type(1) a:hover img {
+  transform: scale(1.1);
 }
 
-/* Stijling voor de beleidslinks (tweede nav) */
+/* Footer policy links */
 footer nav:nth-of-type(2) {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: left;
+  flex-direction: column;
   gap: 1em;
   margin-top: 2em;
   color: #666;
+  flex-wrap: wrap;
 }
 
 footer nav:nth-of-type(2) a {
